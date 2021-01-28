@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/mnt/c/Users/Brian/Desktop/projects'
+let g:netrw_dirhist_2='/mnt/c/Users/Brian/Desktop/projects/minigrep'
+let g:netrw_dirhist_1='/mnt/c/Users/Brian/Desktop/projects'
+let g:netrw_dirhist_0='/mnt/c/Users/Brian/Desktop'
+let g:netrw_dirhist_9='/mnt/c/Users/Brian/Desktop/projects'
+let g:netrw_dirhist_8='/mnt/c/Users/Brian/Desktop/projects/add'
+let g:netrw_dirhist_7='/mnt/c/Users/Brian/Desktop/projects'
+let g:netrw_dirhist_6='/mnt/c/Users/Brian'
+let g:netrw_dirhist_5='/mnt/c/Users/Brian/Desktop'
+let g:netrw_dirhist_4='/mnt/c/Users/Brian/Desktop/projects'
