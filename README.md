@@ -4,6 +4,12 @@
 - [NERDTree](https://github.com/preservim/nerdtree) - File system explorer for Vim
 - [VimDevIcons](https://github.com/ryanoasis/vim-devicons) - Icons for NERDTree
 
+## Git
+#### Install `git`
+```console
+sudo pacman -S git
+```
+
 ## Zsh
 #### Install `zsh` along with some nice plugins: [zsh-completions](https://github.com/zsh-users/zsh-completions), [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 ```console
