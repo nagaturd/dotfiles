@@ -1,8 +1,14 @@
+# Change default configuration file location
+# export STARSHIP_CONFIG=~/.starship/config.toml
+
+# Change default cache location
+# export STARSHIP_CACHE=~/.starship/cache
+
 [directory]
 read_only = " "
 
 [directory.substitutions]
-"/mnt/c/Users/Brian/Desktop/projects" = "projects"
+# "/mnt/c/Users/Brian/Desktop/projects" = "projects"
 
 [aws]
 symbol = " "
@@ -13,7 +19,7 @@ symbol = " "
 [dart]
 symbol = " "
 
-[docker]
+[docker_context]
 symbol = " "
 
 [elixir]
@@ -27,9 +33,6 @@ symbol = " "
 
 [golang]
 symbol = " "
-
-[haskell]
-symbol = " "
 
 [hg_branch]
 symbol = " "
