@@ -38,7 +38,7 @@ sudo pacman -S starship
 #### Setup config file
 ```console
 mkdir -p ~/.config
-cp ~/starship/starship.toml ~/.config/starship.toml
+ln -s ~/.dotfiles/starship/starship.toml ~/.config
 ```
 
 #### Start `starship` with shell
