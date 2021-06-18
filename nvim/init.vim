@@ -8,7 +8,7 @@ set termguicolors
 set updatetime=50
 set signcolumn=yes
 set noshowmode
-set laststatus=2
+" set laststatus=2
 
 " Backup/Swap
 set noswapfile
@@ -36,8 +36,8 @@ let mapleader = " "
 
 " Vim-Plug
 " Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob("${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/autoload/plug.vim'))
+  silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share"/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -46,23 +46,15 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#begin(stdpath('data') . '/plugged')
 Plug 'w0ng/vim-hybrid'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'herringtondarkholme/yats'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " Apply colorscheme
 colorscheme hybrid
-let g:lightline = {
-    \ 'colorscheme': 'Tomorrow_Night'
-    \ }
-highlight Normal guibg=none
+" let g:lightline = {
+"    \ 'colorscheme': 'Tomorrow_Night'
+"    \ }
+" highlight Normal guibg=none
 
