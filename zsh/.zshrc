@@ -28,9 +28,9 @@ zsh_add_file "zsh-exports"
 zsh_add_file "zsh-vim-mode"
 
 # Plugins
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-completions"
+zsh_add_plugin "zsh-completions"
+zsh_add_plugin "zsh-autosuggestions"
+zsh_add_plugin "zsh-syntax-highlighting"
 
 # Keybinds
 bindkey "^p" up-line-or-beginning-search # Up
@@ -42,5 +42,6 @@ bindkey -r "^d"
 
 compinit
 
-# Edit line 
+# Edit line in vim with ctrl-e: 
 autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
