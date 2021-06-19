@@ -7,6 +7,6 @@ function zsh_add_file() {
 
 function zsh_add_plugin() {
 	dir="/usr/share/zsh/plugins"
-	([ -f "$dir/$1/$1.zsh" ] && source "$dir/$1/$1.zsh") || /
+	([ -f "$dir/$1/$1.zsh" ] && source "$dir/$1/$1.zsh") ||
 	[ -f "$dir/$1/$1.plugin.zsh" ] && source "$dir/$1/$1.zsh"
 }
