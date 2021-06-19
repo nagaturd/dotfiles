@@ -11,6 +11,7 @@ unsetopt BEEP
 # Completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
+zmodload zsh/complist
 _comp_options+=(globdots) # Include hidden files
 
 autoload -U up-line-or-beginning-search
@@ -27,9 +28,9 @@ zsh_add_file "zsh-exports"
 zsh_add_file "zsh-vim-mode"
 
 # Plugins
-zsh_add_plugins "zsh-users/zsh-autosuggestions"
-zsh_add_plugins "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugins "zsh-users/zsh-completions"
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "zsh-users/zsh-completions"
 
 # Keybinds
 bindkey "^p" up-line-or-beginning-search # Up
@@ -38,10 +39,6 @@ bindkey "^k" up-line-or-beginning-search # Up
 bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
-
-# Plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 compinit
 
