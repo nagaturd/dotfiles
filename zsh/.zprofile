@@ -1,7 +1,4 @@
-#!/bin/sh
-HISTFILE="$XDG_DATA_HOME"/zsh/history
-HISTSIZE=100000
-SAVEHIST=100000
+#!/bin/zsh
 
 # Default programs:
 export EDITOR="nvim"
@@ -12,5 +9,3 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-
-eval "$(starship init zsh)"
