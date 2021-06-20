@@ -12,6 +12,7 @@ unsetopt BEEP
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
+compinit
 _comp_options+=(globdots) # Include hidden files
 
 autoload -U up-line-or-beginning-search
@@ -39,8 +40,6 @@ bindkey "^k" up-line-or-beginning-search # Up
 bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
-
-compinit
 
 # Edit line in vim with ctrl-e: 
 autoload edit-command-line; zle -N edit-command-line
