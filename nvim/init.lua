@@ -20,18 +20,18 @@ opt.inccommand = "split" -- make substitution work in realtime
 opt.shortmess:append('c') -- don't pass messages to |ins-completion-menu|
 opt.iskeyword:append('-') -- treat dash separated words as a word text object
 opt.fileencoding = "utf-8" -- encoding written to file
-opt.whichwrap:append { "<", ">", "]", "]" } -- move to the next/previous lines when at 0/$
+opt.whichwrap:append("<,>,],]") -- move to the next/previous lines when at 0/$
 opt.mouse = "a"	-- enable mouse
 opt.pumheight = 10 -- makes popup menu smaller
 opt.conceallevel = 0 -- show text normally
 opt.scrolloff = 8 -- start scrolling this many lines from edge
 opt.wrap = false -- display long lines as just one line
 opt.cursorline = true -- highlights current line
-opt.showtabline = true -- show tabs
+opt.showtabline = 2 -- show tabs
 opt.number = true -- show numbered lines
 opt.relativenumber = true -- show relative line numbers
 opt.signcolumn = "yes" -- show the sign column
-opt.colorcolumn = 80 -- use for max line length guide
+opt.colorcolumn = "80" -- use for max line length guide
 opt.syntax = "enable" -- syntax highlighting
 opt.termguicolors = true -- set term gui colors
 -- opt.guifont = "" -- choose a font to use
