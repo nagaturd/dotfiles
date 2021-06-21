@@ -39,3 +39,8 @@ opt.splitbelow = true -- horizontal splits will automatically be below
 opt.splitright = true -- vertical splits will automatically be to the right
 opt.hidden = true -- required to keep multiple buffers open
 opt.updatetime = 50 -- increase how often updates happen
+
+if fn.empty(fn.glob(fn.stdpath('data')..'/site/pack/packer/start/packer.nvim)) > 0 then
+	fn.system({'git','clone','https://github.com/wbthomason/packer.nvim',fn.stdpath('data')..'/site/pack/packer/start/packer.nvim})
+	execute 'packadd packer.nvim'
+end
