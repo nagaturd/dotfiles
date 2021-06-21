@@ -40,7 +40,15 @@ opt.splitright = true -- vertical splits will automatically be to the right
 opt.hidden = true -- required to keep multiple buffers open
 opt.updatetime = 50 -- increase how often updates happen
 
-if fn.empty(fn.glob(fn.stdpath('data')..'/site/pack/packer/start/packer.nvim)) > 0 then
-	fn.system({'git','clone','https://github.com/wbthomason/packer.nvim',fn.stdpath('data')..'/site/pack/packer/start/packer.nvim})
-	execute 'packadd packer.nvim'
+-- Install paq-nvim automatically
+if fn.empty(fn.glob(fn.stdpath('data')..'/site/pack/paqs/start/paq-nvim')) > 0 then
+	fn.system({'git','clone','https://github.com/savq/paq-nvim',fn.stdpath('data')..'/site/pack/paqs/start/paq-nvim'})
 end
+
+-- Paq - package manager
+require 'paq-nvim' {
+    'savq/paq-nvim'; -- Let Paq manage itself
+    'arcticicestudio/nord-vim'; -- Nord Vim colorscheme
+}
+
+cmd('colorscheme nord') -- Use colorscheme
