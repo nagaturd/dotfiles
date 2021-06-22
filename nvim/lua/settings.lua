@@ -1,12 +1,12 @@
-local cmd = vim.cmd -- to execute Vim commands
-local fn = vim.fn -- to call Vim functions
-local g = vim.g	-- a table to access global variables
 local opt = vim.opt -- to set options
+local g = vim.g -- set global
+
+g.mapleader = " "
 
 opt.tabstop = 4 -- length of \t in spaces
 opt.softtabstop = 4 -- length of tab/backspace keypress in spaces
 opt.shiftwidth = 4 -- length of indentation in spaces
-opt.expandtab = true -- converts \t to spaces
+-- opt.expandtab = true -- converts \t to spaces
 opt.backup = false -- don't create backups
 opt.writebackup = false -- don't create a backup before overwriting a file
 opt.swapfile = false -- don't create a swap file

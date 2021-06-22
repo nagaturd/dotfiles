@@ -1,3 +1,30 @@
+-- lspkind
+require'lspkind'.init({
+	with_text = true,
+	symbol_map = {
+		Text = '',
+		Method = 'ƒ',
+		Function = '',
+		Constructor = '',
+		Variable = '',
+		Class = '',
+		Interface = 'ﰮ',
+		Module = '',
+		Property = '',
+		Unit = '',
+		Value = '',
+		Enum = '了',
+		Keyword = '',
+		Snippet = '﬌',
+		Color = '',
+		File = '',
+		Folder = '',
+		EnumMember = '',
+		Constant = '',
+		Struct = ''
+    },
+})
+
 -- lspinstall
 local function setup_servers()
 	require'lspinstall'.setup()
@@ -21,7 +48,3 @@ require'lspinstall'.post_install_hook = function ()
   	setup_servers() -- reload installed servers
   	vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
-
--- lspsaga
-require'lspsaga'.init_lsp_saga {
-}

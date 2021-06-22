@@ -16,11 +16,15 @@ require 'paq-nvim' {
 
     -- LSP
     'neovim/nvim-lspconfig'; -- native LSP
-    'gelpnir/lspsaga.nvim'; -- better LSP
+    -- 'gelpnir/lspsaga.nvim'; -- better LSP
     'kabouzeid/nvim-lspinstall'; -- manage language servers
+
+    -- Treesitter
+    { 'nvim-treesitter/nvim-treesitter', run=fn[':TSUpdate'] };
 
     -- Autocomplete
     'hrsh7th/nvim-compe'; -- completion
+	'onsails/lspkind-nvim'; -- icons in completion menu
 
     -- Colors
     'arcticicestudio/nord-vim'; -- Nord Vim colorscheme
