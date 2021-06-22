@@ -1,5 +1,4 @@
--- npm install -g vscode-langservers-extracted
-require'lspconfig'.jsonls.setup{
+return {
 	commands = {
 		Format = {
 			function()

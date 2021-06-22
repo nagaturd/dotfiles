@@ -1,4 +1,3 @@
--- npm install -g bash-language-server
-require'lspconfig'.bashls.setup {
+return {
 	filetypes = { "sh", "zsh" }
 }
