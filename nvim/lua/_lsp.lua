@@ -1,0 +1,113 @@
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
+  -- Mappings.
+  local opts = {noremap = true, silent = true}
+
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  -- buf_set_keymap('n', '<C-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<Cmd>lua vim.lsp.buf.type_definition()<CR>',
+                 opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<Leader>e',
+                 '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q',
+                 '<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  -- buf_set_keymap("n", "<space>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+end
+
+-- config that activates keymaps and enables snippet support
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  return {
+    -- enable snippet support
+    capabilities = capabilities,
+    -- map buffer local keybindings when the language server attaches
+    on_attach = on_attach
+  }
+end
+
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    -- use custom config options if available
+    local config = make_config()
+
+    if server == "efm" then
+      config.init_options = {documentFormatting = true}
+      config.settings = {
+        rootMarkers = {".git/"},
+        languages = {
+          lua = {{formatCommand = "lua-format -i", formatStdin = true}}
+        }
+      }
+    end
+
+    if server == "lua" then
+      config.settings = {
+        Lua = {
+          runtime = {
+            -- LuaJIT in the case of Neovim
+            version = 'LuaJIT',
+            path = vim.split(package.path, ';')
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'}
+          }
+        }
+      }
+    end
+
+    require'lspconfig'[server].setup(config)
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+
+-- lspkind
+require'lspkind'.init({
+  with_text = true,
+  symbol_map = {
+    Text = '',
+    Method = 'ƒ',
+    Function = '',
+    Constructor = '',
+    Variable = '',
+    Class = '',
+    Interface = 'ﰮ',
+    Module = '',
+    Property = '',
+    Unit = '',
+    Value = '',
+    Enum = '了',
+    Keyword = '',
+    Snippet = '﬌',
+    Color = '',
+    File = '',
+    Folder = '',
+    EnumMember = '',
+    Constant = '',
+    Struct = ''
+  }
+})
