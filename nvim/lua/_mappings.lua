@@ -27,3 +27,9 @@ map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- formatter
 map("n", "<leader>f", ":Format<CR>", {silent = true, noremap = true})
+
+-- pane navigation
+map("n", "<C-k>", ":wincmd k<CR>", {silent = true})
+map("n", "<C-j>", ":wincmd j<CR>", {silent = true})
+map("n", "<C-h>", ":wincmd h<CR>", {silent = true})
+map("n", "<C-l>", ":wincmd l<CR>", {silent = true})
