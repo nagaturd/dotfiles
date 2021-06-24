@@ -40,7 +40,6 @@ bindkey "^k" up-line-or-beginning-search # Up
 bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
-
-# Edit line in vim with ctrl-e: 
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey "^ " autosuggest-accept
+bindkey "^\n" autosuggest-execute
+bindkey "^[[Z" reverse-menu-complete
