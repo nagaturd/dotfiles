@@ -13,7 +13,6 @@ require 'paq-nvim' {
   -- LSP
   'neovim/nvim-lspconfig', -- config language servers
   'kabouzeid/nvim-lspinstall', -- manage language servers
-  -- 'ahmedkhalf/lsp-rooter.nvim', -- cd to project root
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter', run = fn[':TSUpdate']},
   'windwp/nvim-ts-autotag', -- autocomplete tags e.g. "<tag></tag>"
@@ -21,8 +20,6 @@ require 'paq-nvim' {
   -- Comments
   'b3nj5m1n/kommentary', -- commenting
   'joosepalviste/nvim-ts-context-commentstring', -- sets `commentstring` based on cursor location
-  -- Formatting
-  'mhartington/formatter.nvim', -- formatting in neovim
   -- Autocomplete
   'hrsh7th/nvim-compe', -- completion
   -- Git
