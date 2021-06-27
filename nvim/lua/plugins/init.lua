@@ -1,3 +1,5 @@
+-- Remember to ':so %' or ':luafile %' after saving
+-- Then run ':PaqInstall' to install all plugins
 local fn = vim.fn
 
 -- Install paq-nvim automatically
@@ -13,17 +15,27 @@ require 'paq-nvim' {
   -- LSP
   'neovim/nvim-lspconfig', -- config language servers
   'kabouzeid/nvim-lspinstall', -- manage language servers
+  'ahmedkhalf/lsp-rooter.nvim', -- autochange working dir
+  'folke/lua-dev.nvim', -- get autocomplete for nvim lua stuff
   -- Treesitter
-  {'nvim-treesitter/nvim-treesitter', run = fn[':TSUpdate']},
+  {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
   'windwp/nvim-ts-autotag', -- autocomplete tags e.g. "<tag></tag>"
   'windwp/nvim-autopairs', -- autocomplete pairs
   -- Comments
   'b3nj5m1n/kommentary', -- commenting
-  'joosepalviste/nvim-ts-context-commentstring', -- sets `commentstring` based on cursor location
-  -- Autocomplete
-  'hrsh7th/nvim-compe', -- completion
+  'joosepalviste/nvim-ts-context-commentstring', -- better comments w/ treesitter
+  -- Completion
+  'hrsh7th/nvim-compe', -- autocompletion
+  'onsails/lspkind-nvim', -- icons for autocomplete menu
   -- Git
-  'sindrets/diffview.nvim', -- view git diffs
+  'sindrets/diffview.nvim', -- better git diffs
+  -- File explorer
+  'kyazdani42/nvim-tree.lua', -- file explorer
+  -- UI
+  'brikehn/galaxyline.nvim', -- statusline
+  -- Icons
+  'kyazdani42/nvim-web-devicons', -- devicons
   -- Colors
-  'arcticicestudio/nord-vim' -- Nord Vim colorscheme
+  'folke/tokyonight.nvim', -- Tokyonight colorscheme
+  'norcalli/nvim-colorizer.lua' -- shows colors in nvim 
 }

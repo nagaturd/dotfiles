@@ -1,5 +1,5 @@
 [cmd_duration]
-format = "[祥$duration]($style) "
+format = "[ $duration]($style) "
 
 [directory]
 read_only = " "
@@ -8,10 +8,10 @@ read_only = " "
 # "/mnt/c/Users/Brian/Desktop/projects" = "projects"
 
 [jobs]
-symbol = "華"
+symbol = ""
 
 [memory_usage]
-symbol = "神 "
+symbol = " "
 
 [package]
 symbol = " "
