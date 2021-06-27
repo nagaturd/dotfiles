@@ -5,14 +5,14 @@ require('mappings') -- keymappings
 
 require('plugins')
 require('plugins.nvimtree')
-require('plugins.compe')
-require('plugins.kommentary')
-require('plugins.treesitter')
 require('plugins.diffview')
+require('plugins.telescope')
 require('plugins.lsp-rooter')
 require('plugins.tokyonight')
+require('plugins.compe')
+require('plugins.treesitter')
+require('plugins.kommentary')
 require('plugins.galaxyline')
 require('plugins.colorizer')
-require('plugins.telescope')
 
 require('lsp') -- LSP
