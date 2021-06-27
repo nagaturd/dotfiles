@@ -17,7 +17,7 @@ require 'paq-nvim' {
   'kabouzeid/nvim-lspinstall', -- manage language servers
   'glepnir/lspsaga.nvim', -- better LSP utils
   'ahmedkhalf/lsp-rooter.nvim', -- autochange working dir
-  'folke/lua-dev.nvim', -- get autocomplete for nvim lua stuff
+  'folke/lua-dev.nvim', -- nvim lua API completion
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
   'windwp/nvim-ts-autotag', -- autocomplete tags e.g. "<tag></tag>"
@@ -31,18 +31,27 @@ require 'paq-nvim' {
     run = 'git submodule update --init --recursive'
   }, -- telescope fzy
   'nvim-telescope/telescope-project.nvim', -- project management
+  -- Snippets
+  -- 'hrsh7th/snippets.nvim', -- snippet plugin
+  -- 'rafamadriz/friendly_snippets', -- community snippets collection
   -- Comments
   'b3nj5m1n/kommentary', -- commenting
   'joosepalviste/nvim-ts-context-commentstring', -- better comments w/ treesitter
   -- Completion
   'hrsh7th/nvim-compe', -- autocompletion
   'onsails/lspkind-nvim', -- icons for autocomplete menu
+  -- Debugging
+  -- 'mfussenegger/nvim-dap', -- dap client
+  -- 'rcarriga/nvim-dap-ui', -- UI for nvim-dap
   -- Git
   'sindrets/diffview.nvim', -- better git diffs
+  -- Terminal
+  -- 'akinsho/nvim-toggleterm.lua', -- integrated terminal
   -- File explorer
   'kyazdani42/nvim-tree.lua', -- file explorer
-  -- UI
+  -- Tab/Statusline
   'brikehn/galaxyline.nvim', -- statusline
+  -- 'romgrk/barbar.nvim', -- tabline
   -- Icons
   'kyazdani42/nvim-web-devicons', -- devicons
   -- Colors

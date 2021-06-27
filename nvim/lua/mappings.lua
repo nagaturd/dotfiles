@@ -13,14 +13,17 @@ map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- telescope
-map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>',
+map('n', '<leader>f', '<cmd>lua require("telescope.builtin").find_files()<cr>',
     {noremap = true})
-map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>',
+map('n', '<leader>g', '<cmd>lua require("telescope.builtin").live_grep()<cr>',
     {noremap = true})
-map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>',
+map('n', '<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>',
     {noremap = true})
-map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>',
+map('n', '<leader>h', '<cmd>lua require("telescope.builtin").help_tags()<cr>',
     {noremap = true})
+map('n', '<leader>p',
+    ':lua require"telescope".extensions.project.project{}<CR>',
+    {noremap = true, silent = true})
 
 -- lspsaga
 local opts = {silent = true, noremap = true}
