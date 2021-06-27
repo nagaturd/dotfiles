@@ -9,8 +9,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
+-- Auto compile when there are changes in plugins.lua
+vim.cmd "autocmd BufWritePost plugins/init.lua PackerCompile" 
+
 -- Plugins
-require("packer").startup(function(use)
+require("packer").startup({function(use)
   use 'wbthomason/packer.nvim' -- Let packer manage itself
   -- LSP
   use 'neovim/nvim-lspconfig' -- config language servers
@@ -26,9 +29,7 @@ require("packer").startup(function(use)
   use 'nvim-lua/popup.nvim' -- dependency for telescope
   use 'nvim-lua/plenary.nvim' -- dependency for telescope
   use 'nvim-telescope/telescope.nvim' -- telescope
-  use {
-    'nvim-telescope/telescope-fzy-native.nvim',
-    run = 'git submodule update --init --recursive'} -- telescope fzy
+  use 'nvim-telescope/telescope-fzy-native.nvim' -- telescope fzy
   use 'nvim-telescope/telescope-project.nvim' -- project management
   -- Snippets
   -- use 'hrsh7th/snippets.nvim' -- snippet plugin
@@ -56,4 +57,11 @@ require("packer").startup(function(use)
   -- Colors
   use 'folke/tokyonight.nvim' -- Tokyonight colorscheme
   use 'norcalli/nvim-colorizer.lua' -- shows colors in nvim
-end)
+end,
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({border = 'single' })
+    end
+  }
+}})
