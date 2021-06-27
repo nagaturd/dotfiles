@@ -15,6 +15,7 @@ require 'paq-nvim' {
   -- LSP
   'neovim/nvim-lspconfig', -- config language servers
   'kabouzeid/nvim-lspinstall', -- manage language servers
+  'glepnir/lspsaga.nvim', -- better LSP utils
   'ahmedkhalf/lsp-rooter.nvim', -- autochange working dir
   'folke/lua-dev.nvim', -- get autocomplete for nvim lua stuff
   -- Treesitter
