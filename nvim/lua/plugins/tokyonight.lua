@@ -10,5 +10,6 @@ g.tokyonight_transparent = false -- transparent background
 g.tokyonight_sidebars = {} -- list of sidebar windows to for dark_sidebar
 g.tokyonight_dark_sidebar = true -- use darker sidebars
 g.tokyonight_dark_float = true -- use darker floats
+g.tokyonight_colors = {bg_visual = 'terminal_black'}
 
 vim.cmd [[colorscheme tokyonight]]

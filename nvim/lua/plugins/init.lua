@@ -22,6 +22,15 @@ require 'paq-nvim' {
   {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
   'windwp/nvim-ts-autotag', -- autocomplete tags e.g. "<tag></tag>"
   'windwp/nvim-autopairs', -- autocomplete pairs
+  -- Telescope
+  'nvim-lua/popup.nvim', -- dependency for telescope
+  'nvim-lua/plenary.nvim', -- dependency for telescope
+  'nvim-telescope/telescope.nvim', -- telescope
+  {
+    'nvim-telescope/telescope-fzy-native.nvim',
+    run = 'git submodule update --init --recursive'
+  }, -- telescope fzy
+  'nvim-telescope/telescope-project.nvim', -- project management
   -- Comments
   'b3nj5m1n/kommentary', -- commenting
   'joosepalviste/nvim-ts-context-commentstring', -- better comments w/ treesitter
@@ -38,5 +47,5 @@ require 'paq-nvim' {
   'kyazdani42/nvim-web-devicons', -- devicons
   -- Colors
   'folke/tokyonight.nvim', -- Tokyonight colorscheme
-  'norcalli/nvim-colorizer.lua' -- shows colors in nvim 
+  'norcalli/nvim-colorizer.lua' -- shows colors in nvim
 }

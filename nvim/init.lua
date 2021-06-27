@@ -13,5 +13,6 @@ require('plugins.lsp-rooter')
 require('plugins.tokyonight')
 require('plugins.galaxyline')
 require('plugins.colorizer')
+require('plugins.telescope')
 
 require('lsp') -- LSP

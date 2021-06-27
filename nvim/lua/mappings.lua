@@ -12,9 +12,18 @@ map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
+-- telescope
+map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>',
+    {noremap = true})
+map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>',
+    {noremap = true})
+map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>',
+    {noremap = true})
+map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>',
+    {noremap = true})
+
 -- lspsaga
 local opts = {silent = true, noremap = true}
-
 map("n", "gh", ":Lspsaga lsp_finder<CR>", opts)
 map('n', 'gr', ':Lspsaga rename<CR>', opts)
 map("n", "gs", ":Lspsaga signature_help<CR>", opts)
