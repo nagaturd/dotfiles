@@ -1,6 +1,8 @@
 -- Remember to install language parsers with ':TSInstall <language>'
 require'nvim-treesitter.configs'.setup {
-  highlight = {enable = true},
+  ensure_installed = "maintained",
+  ignore_install = {},
+  highlight = {enable = true, disable = {}},
   incremental_selection = {
     enable = true,
     keymaps = {
