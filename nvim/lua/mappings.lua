@@ -3,7 +3,7 @@ local map = vim.api.nvim_set_keymap
 -- nvim-compe
 local opts_expr = {silent = true, noremap = true, expr = true}
 map("i", "<C-Space>", "compe#complete()", opts_expr)
--- map("i", "<CR>", "compe#confirm('<CR>')", opts_expr)
+map("i", "<CR>", "compe#confirm('<CR>')", opts_expr)
 map("i", "<C-e>", "compe#close('<C-e>')", opts_expr)
 map("i", "<C-f>", "compe#scroll({ 'delta': +4 })", opts_expr)
 map("i", "<C-d>", "compe#scroll({ 'delta': -4 })", opts_expr)

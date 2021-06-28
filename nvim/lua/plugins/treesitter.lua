@@ -14,7 +14,19 @@ require'nvim-treesitter.configs'.setup {
     indent = {enable = true},
     autotag = {enable = true},
     autopairs = {enable = true},
-    context_commentstring = {enable = true, enable_autocmd = false}
+    context_commentstring = {
+      enable = true,
+      enable_autocmd = false,
+      config = {
+        javascript = {
+          __default = '// %s',
+          jsx_element = '{/* %s */}',
+          jsx_fragment = '{/* %s */}',
+          jsx_attribute = '// %s',
+          comment = '// %s'
+        }
+      }
+    }
   }
 }
 
@@ -36,7 +48,7 @@ require('nvim-autopairs').setup({
   check_ts = true,
   ts_config = {lua = {'string'}, javascript = {'template_string'}},
   fast_wrap = {
-    map = '<M-e>',
+    map = '<leader-e>',
     chars = {'{', '[', '(', '"', "'"},
     pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
     end_key = '$',
