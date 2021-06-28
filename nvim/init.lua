@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 require('options') -- neovim options
 require('mappings') -- keymappings
@@ -12,6 +12,7 @@ require('plugins.compe')
 require('plugins.diffview')
 require('plugins.treesitter')
 require('plugins.kommentary')
+require('plugins.symbols')
 require('plugins.galaxyline')
 require('plugins.colorizer')
 

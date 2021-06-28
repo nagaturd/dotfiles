@@ -1,9 +1,9 @@
 local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
 
-return require("lua-dev").setup({
-  library = {vimruntime = true, types = true, plugins = true},
+return require('lua-dev').setup({
+  library = { vimruntime = true, types = true, plugins = true },
   lspconfig = {
     settings = {
       Lua = {
@@ -14,7 +14,7 @@ return require("lua-dev").setup({
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = {'vim'}
+          globals = { 'vim' }
         },
         workspace = {
           library = {

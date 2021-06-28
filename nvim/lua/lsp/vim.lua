@@ -1,1 +1,1 @@
-return {init_options = {isNeovim = true}}
+return { init_options = { isNeovim = true } }

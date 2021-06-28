@@ -1,19 +1,19 @@
 -- Remember to install language parsers with ':TSInstall <language>'
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = 'maintained',
   ignore_install = {},
-  highlight = {enable = true, disable = {}},
+  highlight = { enable = true, disable = {} },
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm"
+      init_selection = 'gnn',
+      node_incremental = 'grn',
+      scope_incremental = 'grc',
+      node_decremental = 'grm'
     },
-    indent = {enable = true},
-    autotag = {enable = true},
-    autopairs = {enable = true},
+    indent = { enable = true },
+    autotag = { enable = true },
+    autopairs = { enable = true },
     context_commentstring = {
       enable = true,
       enable_autocmd = false,
@@ -34,22 +34,22 @@ require'nvim-treesitter.configs'.setup {
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       underline = true,
-      virtual_text = {spacing = 5, severity_limit = 'Warning'},
+      virtual_text = { spacing = 5, severity_limit = 'Warning' },
       update_in_insert = true
     })
 
 -- autopairs
 require('nvim-autopairs').setup({
-  disable_filetype = {"TelescopePrompt"},
-  ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
+  disable_filetype = { 'TelescopePrompt' },
+  ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], '%s+', ''),
   enable_moveright = true,
   enable_afterquote = true,
   enable_check_bracket_line = false,
   check_ts = true,
-  ts_config = {lua = {'string'}, javascript = {'template_string'}},
+  ts_config = { lua = { 'string' }, javascript = { 'template_string' } },
   fast_wrap = {
     map = '<leader-e>',
-    chars = {'{', '[', '(', '"', "'"},
+    chars = { '{', '[', '(', '"', '\'' },
     pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
     end_key = '$',
     keys = 'qwertyuiopzxcvbnmasdfghjkl',
@@ -71,16 +71,15 @@ require('nvim-autopairs').add_rules({
   -- Rule("%", "%", "lua"):with_pair(ts_conds.is_ts_node({'string', 'comment'})),
   Rule(' ', ' '):with_pair(function(opts)
     local pair = opts.line:sub(opts.col, opts.col + 1)
-    return vim.tbl_contains({'()', '[]', '{}'}, pair)
+    return vim.tbl_contains({ '()', '[]', '{}' }, pair)
   end),
   Rule('( ', ' )'):with_pair(function() return false end):with_move(function()
     return true
-  end):use_key(")"),
+  end):use_key(')'),
   Rule('{ ', ' }'):with_pair(function() return false end):with_move(function()
     return true
-  end):use_key("}"),
+  end):use_key('}'),
   Rule('[ ', ' ]'):with_pair(function() return false end):with_move(function()
     return true
-  end):use_key("]")
+  end):use_key(']')
 })
-

@@ -25,38 +25,38 @@ g.nvim_tree_hijack_cursor = 1
 g.nvim_tree_icon_padding = ' '
 g.nvim_tree_update_cwd = 1
 g.nvim_tree_window_picker_exclude = {
-  filetype = {'packer', 'qf'},
-  buftype = {'terminal'}
+  filetype = { 'packer', 'qf' },
+  buftype = { 'terminal' }
 }
-g.nvim_tree_special_files = {'README.md', 'Makefile', 'MAKEFILE'}
-g.nvim_tree_show_icons = {git = 1, folders = 1, files = 1, folder_arrows = 0}
+g.nvim_tree_special_files = { 'README.md', 'Makefile', 'MAKEFILE' }
+g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 0 }
 g.nvim_tree_icons = {
   default = ' ',
   symlink = '',
   git = {
-    unstaged = "",
-    staged = "",
-    unmerged = "",
-    renamed = "",
-    untracked = "",
-    deleted = "",
-    ignored = ""
+    unstaged = '',
+    staged = '',
+    unmerged = '',
+    renamed = '',
+    untracked = '',
+    deleted = '',
+    ignored = ''
   },
   folder = {
-    arrow_open = "",
-    arrow_closed = "",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-    symlink_open = ""
+    arrow_open = '',
+    arrow_closed = '',
+    default = '',
+    open = '',
+    empty = '',
+    empty_open = '',
+    symlink = '',
+    symlink_open = ''
   },
-  lsp = {hint = "", info = "", warning = "", error = ""}
+  lsp = { hint = '', info = '', warning = '', error = '' }
 }
 
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>',
-                        {noremap = true})
+                        { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>',
-                        {noremap = true})
+                        { noremap = true })

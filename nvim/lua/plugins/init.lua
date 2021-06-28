@@ -12,10 +12,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Auto compile when there are changes in plugins.lua
-vim.cmd "autocmd BufWritePost plugins/init.lua PackerCompile"
+vim.cmd 'autocmd BufWritePost plugins/init.lua PackerCompile'
 
 -- Plugins
-require("packer").startup({
+require('packer').startup({
   function(use)
     use 'wbthomason/packer.nvim' -- Let packer manage itself
     -- LSP
@@ -24,8 +24,9 @@ require("packer").startup({
     use 'glepnir/lspsaga.nvim' -- better LSP utils
     use 'ahmedkhalf/lsp-rooter.nvim' -- autochange working dir
     use 'folke/lua-dev.nvim' -- nvim lua API completion
+    use 'simrat39/symbols-outline.nvim' -- symbols sidebar
     -- Treesitter
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'windwp/nvim-autopairs' -- autocomplete pairs
     use 'windwp/nvim-ts-autotag' -- autocomplete tags e.g. "<tag></tag>"
     -- Telescope
@@ -42,7 +43,6 @@ require("packer").startup({
     use 'joosepalviste/nvim-ts-context-commentstring' -- better comments w/ treesitter
     -- Completion
     use 'hrsh7th/nvim-compe' -- autocompletion
-    use 'onsails/lspkind-nvim' -- icons for autocomplete menu
     -- Debugging
     -- use 'mfussenegger/nvim-dap' -- dap client
     -- use 'rcarriga/nvim-dap-ui' -- UI for nvim-dap
@@ -64,7 +64,7 @@ require("packer").startup({
   config = {
     display = {
       open_fn = function()
-        return require('packer.util').float({border = 'single'})
+        return require('packer.util').float({ border = 'single' })
       end
     }
   }

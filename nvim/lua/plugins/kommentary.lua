@@ -5,6 +5,6 @@ require('kommentary.config').configure_language('default', {
 })
 
 -- Rust comments
-require('kommentary.config').configure_language("rust", {
+require('kommentary.config').configure_language('rust', {
   prefer_single_line_comments = true
 })

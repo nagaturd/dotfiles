@@ -1,1 +1,1 @@
-require("lsp-rooter").setup {}
+require('lsp-rooter').setup {}

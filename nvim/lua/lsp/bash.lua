@@ -1,0 +1,1 @@
+return { filetypes = { 'sh', 'zsh' } }
