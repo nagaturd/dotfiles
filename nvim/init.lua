@@ -15,5 +15,7 @@ require('plugins.kommentary')
 require('plugins.symbols')
 require('plugins.galaxyline')
 require('plugins.colorizer')
+require('plugins.autopairs')
+require('plugins.autotags')
 
 require('lsp') -- LSP
