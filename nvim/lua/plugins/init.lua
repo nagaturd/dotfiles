@@ -60,12 +60,5 @@ require('packer').startup({
     -- Colors
     use 'folke/tokyonight.nvim' -- Tokyonight colorscheme
     use 'norcalli/nvim-colorizer.lua' -- shows colors in nvim
-  end,
-  config = {
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end
-    }
-  }
+  end
 })
