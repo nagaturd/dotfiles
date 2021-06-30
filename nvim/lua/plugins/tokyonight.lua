@@ -1,5 +1,9 @@
 local g = vim.g
 
+-- transparency effects
+vim.cmd [[au ColorScheme * hi Normal guibg=none]]
+vim.cmd [[au ColorScheme * hi SignColumn guibg=none]]
+
 g.tokyonight_style = 'night' -- 'storm', 'night', or 'day' variant
 g.tokyonight_terminal_colors = true -- use terminal colors
 g.tokyonight_italic_comments = true -- italicize comments
