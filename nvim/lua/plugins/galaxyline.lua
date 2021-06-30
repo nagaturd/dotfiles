@@ -120,7 +120,7 @@ section.left[7] = {
   CurrentDir = {
     provider = function()
       local dir_name = fn.fnamemodify(fn.getcwd(), ':t')
-      return '  ' .. dir_name .. ' '
+      return '  ' .. dir_name .. ' '
     end,
     highlight = { colors.text_dark, colors.bg1 },
     separator = '',
@@ -131,7 +131,7 @@ section.left[7] = {
 section.right[1] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.error, colors.bg }
   }
 }
@@ -139,7 +139,7 @@ section.right[1] = {
 section.right[2] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.warning, colors.bg }
   }
 }
@@ -147,7 +147,7 @@ section.right[2] = {
 section.right[3] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.info, colors.bg }
   }
 }
@@ -155,7 +155,7 @@ section.right[3] = {
 section.right[4] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.hint, colors.bg }
   }
 }
