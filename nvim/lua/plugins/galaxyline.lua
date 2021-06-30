@@ -42,8 +42,8 @@ section.left[1] = {
         S = colors.orange,
         [''] = colors.orange,
         ic = colors.yellow,
-        R = colors.purple,
-        Rv = colors.purple,
+        R = colors.magenta,
+        Rv = colors.magenta,
         cv = colors.red,
         ce = colors.red,
         r = colors.cyan,
@@ -52,7 +52,7 @@ section.left[1] = {
         ['!'] = colors.red,
         t = colors.red
       }
-      -- cmd('hi GalaxyViMode guifg=' .. mode_color[fn.mode()])
+      cmd('hi GalaxyViMode guifg=' .. mode_color[fn.mode()])
       return '   '
     end,
     highlight = { colors.text, colors.bg },
@@ -86,7 +86,7 @@ section.left[4] = {
     provider = 'DiffAdd',
     condition = condition.hide_in_width,
     icon = ' ',
-    highlight = { colors.dark_text, colors.bg }
+    highlight = { colors.text_dark, colors.bg }
   }
 }
 
@@ -95,7 +95,7 @@ section.left[5] = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
     icon = ' ',
-    highlight = { colors.dark_text, colors.bg }
+    highlight = { colors.text_dark, colors.bg }
   }
 }
 
@@ -104,7 +104,7 @@ section.left[6] = {
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
     icon = ' ',
-    highlight = { colors.dark_text, colors.bg }
+    highlight = { colors.text_dark, colors.bg }
   }
 }
 
@@ -114,7 +114,7 @@ section.left[7] = {
       local dir_name = fn.fnamemodify(fn.getcwd(), ':t')
       return '  ' .. dir_name .. ' '
     end,
-    highlight = { colors.dark_text, colors.bg1 },
+    highlight = { colors.text_dark, colors.bg1 },
     separator = '',
     separator_highlight = { colors.bg1, colors.bg }
   }
