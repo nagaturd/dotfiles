@@ -57,7 +57,15 @@ section.left[1] = {
     end,
     highlight = { colors.text, colors.bg },
     separator = '',
-    separator_highlight = { colors.bg2, colors.bg }
+    separator_highlight = {
+      function()
+        if condition.buffer_not_empty() == true then
+          return colors.bg2
+        else
+          return colors.bg1
+        end
+      end, colors.bg
+    }
   }
 }
 
