@@ -23,12 +23,11 @@ require('packer').startup({
     use 'kabouzeid/nvim-lspinstall' -- manage language servers
     use 'glepnir/lspsaga.nvim' -- better LSP utils
     use 'ahmedkhalf/lsp-rooter.nvim' -- autochange working dir
-    use 'folke/lua-dev.nvim' -- nvim lua API completion
     use 'simrat39/symbols-outline.nvim' -- symbols sidebar
+    use 'ray-x/lsp_signature.nvim' -- show signatures
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'windwp/nvim-autopairs' -- autocomplete pairs
-    use 'windwp/nvim-ts-autotag' -- autocomplete tags e.g. "<tag></tag>"
+    use 'steelsojka/pears.nvim' -- autopairing
     -- Telescope
     use 'nvim-lua/popup.nvim' -- dependency for telescope
     use 'nvim-lua/plenary.nvim' -- dependency for telescope
@@ -36,20 +35,19 @@ require('packer').startup({
     use 'nvim-telescope/telescope-fzy-native.nvim' -- telescope fzy
     use 'nvim-telescope/telescope-project.nvim' -- project management
     -- Snippets
-    -- use 'hrsh7th/snippets.nvim' -- snippet plugin
+    -- use 'L3MON4D3/LuaSnip' -- snippet plugin
     -- use 'rafamadriz/friendly_snippets' -- community snippets collection
     -- Comments
     use 'b3nj5m1n/kommentary' -- commenting
-    use 'joosepalviste/nvim-ts-context-commentstring' -- better comments w/ treesitter
     -- Completion
     use 'hrsh7th/nvim-compe' -- autocompletion
     -- Debugging
     -- use 'mfussenegger/nvim-dap' -- dap client
     -- use 'rcarriga/nvim-dap-ui' -- UI for nvim-dap
-    -- Git
-    use 'sindrets/diffview.nvim' -- better git diffs
     -- Terminal
     -- use 'akinsho/nvim-toggleterm.lua' -- integrated terminal
+    -- Git
+    use 'lewis6991/gitsigns.nvim' -- git in sign column
     -- File explorer
     use 'kyazdani42/nvim-tree.lua' -- file explorer
     -- Tab/Statusline

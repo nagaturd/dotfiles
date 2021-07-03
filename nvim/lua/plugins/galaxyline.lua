@@ -3,7 +3,7 @@ local fn = vim.fn
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 local section = require('galaxyline').section
-gl.short_line_list = { 'NvimTree', 'DiffviewFiles', 'Outline', 'help' }
+gl.short_line_list = { 'NvimTree', 'Outline' }
 
 local colors = {
   bg = '#232433',
@@ -53,7 +53,7 @@ section.left[1] = {
         t = colors.red
       }
       cmd('hi GalaxyViMode guifg=' .. mode_color[fn.mode()])
-      return '   '
+      return '     '
     end,
     highlight = { colors.text, colors.bg },
     separator = '',
@@ -93,7 +93,7 @@ section.left[4] = {
   DiffAdd = {
     provider = 'DiffAdd',
     condition = condition.hide_in_width,
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.text_dark, colors.bg }
   }
 }
@@ -102,7 +102,7 @@ section.left[5] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.text_dark, colors.bg }
   }
 }
@@ -111,7 +111,7 @@ section.left[6] = {
   DiffRemove = {
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
-    icon = ' ',
+    icon = ' ',
     highlight = { colors.text_dark, colors.bg }
   }
 }
@@ -165,7 +165,7 @@ section.right[5] = {
     provider = function()
       local clients = vim.lsp.buf_get_clients()
       if next(clients) ~= nil then
-        return ' ' .. ' LSP '
+        return ' ' .. '  LSP '
       else
         return ''
       end
@@ -204,6 +204,15 @@ section.right[7] = {
   }
 }
 
+section.right[8] = {
+  LinePercent = {
+    provider = 'LinePercent',
+    separator = '|',
+    separator_highlight = { colors.text, colors.bg2 },
+    highlight = { colors.text, colors.bg2 }
+  }
+}
+
 section.short_line_left[1] = {
   Spacer = {
     provider = function() return ' ' end,
@@ -232,6 +241,15 @@ section.short_line_left[3] = {
 section.short_line_right[1] = {
   BufferIcon = {
     provider = 'BufferIcon',
-    highlight = { colors.text, colors.bg1 }
+    highlight = { colors.text, colors.bg1 },
+    separator = '',
+    separator_highlight = { colors.bg1, colors.bg }
+  }
+}
+
+section.short_line_right[2] = {
+  EndSpacer = {
+    provider = function() return ' ' end,
+    highlight = { colors.none, colors.bg1 }
   }
 }

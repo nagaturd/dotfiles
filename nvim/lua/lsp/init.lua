@@ -1,6 +1,8 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  require('lsp_signature').on_attach()
+
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   -- Mappings.
@@ -81,6 +83,10 @@ end
 vim.api.nvim_exec([[
 autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.ts, lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.tsx, lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.js, lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx, lua vim.lsp.buf.formatting_sync(nil, 100)
 ]], true)
 
 require'lspsaga'.init_lsp_saga {

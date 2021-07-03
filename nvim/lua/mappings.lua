@@ -22,8 +22,7 @@ map('n', '<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>',
     { noremap = true })
 map('n', '<leader>h', '<cmd>lua require("telescope.builtin").help_tags()<cr>',
     { noremap = true })
-map('n', '<leader>p',
-    ':lua require"telescope".extensions.project.project{}<CR>',
+map('n', '<C-p>', ':lua require"telescope".extensions.project.project{}<CR>',
     { noremap = true, silent = true })
 
 -- lspsaga

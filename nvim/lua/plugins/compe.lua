@@ -12,7 +12,7 @@ require'compe'.setup {
   max_kind_width = 100,
   max_menu_width = 100,
   documentation = {
-    border = 'rounded',
+    border = 'none',
     winhighlight = 'CompeDocumentation',
     max_width = 120,
     min_width = 40,

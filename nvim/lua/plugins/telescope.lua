@@ -5,7 +5,7 @@ require('telescope').setup {
       'rg', '--color=never', '--no-heading', '--with-filename', '--line-number',
       '--column', '--smart-case'
     },
-    prompt_position = 'bottom',
+    layout_prompt_position = 'bottom',
     prompt_prefix = '  ',
     selection_caret = '  ',
     entry_prefix = '   ',
@@ -13,7 +13,7 @@ require('telescope').setup {
     selection_strategy = 'reset',
     sorting_strategy = 'descending',
     layout_strategy = 'horizontal',
-    layout_defaults = {
+    layout_config = {
       horizontal = { mirror = false },
       vertical = { mirror = false }
     },
@@ -22,10 +22,8 @@ require('telescope').setup {
     generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
+    layout_width = 0.75,
+    layout_preview_cutoff = 120,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons = true,
@@ -53,7 +51,8 @@ require('telescope').setup {
     }
   },
   extensions = {
-    fzy_native = { override_generic_sorter = false, override_file_sorter = true }
+    fzy_native = { override_generic_sorter = false, override_file_sorter = true },
+    project = { base_dir = '~/', max_depth = 3 }
   }
 }
 
