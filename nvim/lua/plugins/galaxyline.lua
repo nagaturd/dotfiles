@@ -165,7 +165,7 @@ section.right[5] = {
     provider = function()
       local clients = vim.lsp.buf_get_clients()
       if next(clients) ~= nil then
-        return ' ' .. '  LSP '
+        return ' ' .. ' LSP '
       else
         return ''
       end
