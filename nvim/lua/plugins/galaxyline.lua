@@ -34,13 +34,11 @@ section.left[1] = {
         n = colors.fg,
         i = colors.green,
         v = colors.blue,
-        [''] = colors.blue,
         V = colors.blue,
         c = colors.red,
         no = colors.magenta,
         s = colors.orange,
         S = colors.orange,
-        [''] = colors.orange,
         ic = colors.yellow,
         R = colors.magenta,
         Rv = colors.magenta,
@@ -163,13 +161,15 @@ section.right[4] = {
 section.right[5] = {
   ShowLSP = {
     provider = function()
-      local clients = vim.lsp.buf_get_clients()
-      if next(clients) ~= nil then
-        return ' ' .. ' LSP '
-      else
-        return ''
-      end
+      return require'galaxyline.provider_lsp'.get_lsp_client() .. ' '
     end,
+    -- provider = function() return get_lsp_client() .. ' ' end,
+    condition = function()
+      local tbl = { ['dashboard'] = true, [' '] = true }
+      if tbl[vim.bo.filetype] then return false end
+      return true
+    end,
+    icon = ' ',
     highlight = { colors.text, colors.bg }
   }
 }
@@ -244,12 +244,5 @@ section.short_line_right[1] = {
     highlight = { colors.text, colors.bg1 },
     separator = '',
     separator_highlight = { colors.bg1, colors.bg }
-  }
-}
-
-section.short_line_right[2] = {
-  EndSpacer = {
-    provider = function() return ' ' end,
-    highlight = { colors.none, colors.bg1 }
   }
 }
