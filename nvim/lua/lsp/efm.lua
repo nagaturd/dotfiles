@@ -1,6 +1,7 @@
 return {
+  cmd = { vim.fn.stdpath('data') .. '/lspinstall/efm/efm-langserver' },
   init_options = { documentFormatting = true },
-  filetypes = { 'lua', 'sh' },
+  filetypes = { 'sh', 'lua' },
   settings = {
     rootMarkers = { '.git/' },
     languages = {
