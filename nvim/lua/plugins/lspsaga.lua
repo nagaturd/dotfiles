@@ -17,16 +17,16 @@ require'lspsaga'.init_lsp_saga {
   max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
   finder_action_keys = {
     open = 'o',
-    vsplit = 's',
-    split = 'i',
-    quit = 'q',
+    vsplit = 'v',
+    split = 's',
+    quit = 'q', -- quit can be a table
     scroll_down = '<C-f>',
-    scroll_up = '<C-b>' -- quit can be a table
+    scroll_up = '<C-b>'
   },
   code_action_keys = { quit = 'q', exec = '<CR>' },
   rename_action_keys = {
-    quit = '<C-c>',
-    exec = '<CR>' -- quit can be a table
+    quit = '<C-c>', -- quit can be a table
+    exec = '<CR>'
   },
   definition_preview_icon = ' ',
   -- "single" "double" "round" "plus"
@@ -46,7 +46,7 @@ map('n', 'gr', ':Lspsaga rename<CR>', opts)
 map('n', 'gs', ':Lspsaga signature_help<CR>', opts)
 map('n', 'gd', ':Lspsaga preview_definition<CR>', opts)
 map('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', opts)
-map('n', '<leader>cd', ':Lspsaga show_cursor_diagnostics<CR>', opts)
+map('n', '<leader>cc', ':Lspsaga show_cursor_diagnostics<CR>', opts)
 map('n', '[e', ':Lspsaga diagnostic_jump_next<CR>', opts)
 map('n', ']e', ':Lspsaga diagnostic_jump_prev<CR>', opts)
 map('n', 'K', ':Lspsaga hover_doc<CR>', opts)
