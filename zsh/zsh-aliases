@@ -13,4 +13,4 @@ alias rm="rm -iv"
 alias ls="ls --color=auto"
 alias mkdir="mkdir -p"
 
-alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME/.config"
+alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
