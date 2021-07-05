@@ -27,7 +27,8 @@ require('packer').startup({
     use 'ray-x/lsp_signature.nvim' -- show signatures
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'steelsojka/pears.nvim' -- autopairing
+    use 'windwp/nvim-autopairs' -- autopairing
+    use 'windwp/nvim-ts-autotag' -- autotagging
     -- Telescope
     use 'nvim-lua/popup.nvim' -- dependency for telescope
     use 'nvim-lua/plenary.nvim' -- dependency for telescope
