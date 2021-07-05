@@ -50,15 +50,9 @@ end
 
 local function setup_servers()
   require'lspinstall'.setup()
-  local required_servers = {
-    'rust', 'dockerfile', 'cpp', 'yaml', 'graphql', 'efm', 'lua', 'typescript',
-    'css', 'html', 'json', 'svelte', 'bash', 'vim', 'python'
-  }
-  local installed_servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(required_servers) do
-    if not vim.tbl_contains(installed_servers, server) then
-      require'lspinstall'.install_server(server)
-    end
+
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
     local config = make_config()
 
     -- add custom config if one exists
