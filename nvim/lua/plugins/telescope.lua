@@ -58,3 +58,17 @@ require('telescope').setup {
 
 require'telescope'.load_extension('fzy_native')
 require'telescope'.load_extension('project')
+
+-- mappings
+local map = vim.api.nvim_set_keymap
+map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>',
+    { noremap = true })
+map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>',
+    { noremap = true })
+map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>',
+    { noremap = true })
+map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>',
+    { noremap = true })
+map('n', '<C-p>', ':lua require"telescope".extensions.project.project{}<CR>',
+    { noremap = true, silent = true })
+
