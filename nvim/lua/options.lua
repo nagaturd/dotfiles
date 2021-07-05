@@ -1,8 +1,8 @@
 local opt = vim.opt -- to set options
 
 opt.tabstop = 4; -- length of \t in spaces
-opt.softtabstop = 2; -- length of tab/backspace keypress in spaces
-opt.shiftwidth = 2; -- length of indentation in spaces
+opt.softtabstop = 4; -- length of tab/backspace keypress in spaces
+opt.shiftwidth = 4; -- length of indentation in spaces
 opt.expandtab = true; -- converts \t to spaces
 opt.backup = false; -- don't create backups
 opt.writebackup = false; -- don't create a backup before overwriting a file
@@ -37,6 +37,7 @@ opt.relativenumber = true; -- show relative line numbers
 opt.signcolumn = 'yes'; -- show the sign column
 opt.colorcolumn = '80'; -- use for max line length guide
 opt.syntax = 'enable'; -- syntax highlighting
+opt.filetype = 'on'; -- enables filetype detection
 opt.termguicolors = true; -- set term gui colors
 opt.splitbelow = true; -- horizontal splits will automatically be below
 opt.splitright = true; -- vertical splits will automatically be to the right
