@@ -15,3 +15,9 @@ vim.g.symbols_outline = {
   },
   lsp_blacklist = {}
 }
+
+local map = vim.api.nvim_set_keymap
+local opts = { silent = true, noremap = true }
+
+-- mappings
+map('n', '<leader>s', ':SymbolsOutline<CR>', opts)
