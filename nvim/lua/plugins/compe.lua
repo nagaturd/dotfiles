@@ -70,3 +70,16 @@ _G.s_tab_complete = function()
     return t '<S-Tab>'
   end
 end
+
+-- mappings
+local map = vim.api.nvim_set_keymap
+local opts = { silent = true, noremap = true, expr = true }
+map('i', '<C-Space>', 'compe#complete()', opts)
+map('i', '<CR>', 'compe#confirm(\'<CR>\')', opts)
+map('i', '<C-e>', 'compe#close(\'<C-e>\')', opts)
+map('i', '<C-f>', 'compe#scroll({ \'delta\': +4 })', opts)
+map('i', '<C-d>', 'compe#scroll({ \'delta\': -4 })', opts)
+map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+map('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
