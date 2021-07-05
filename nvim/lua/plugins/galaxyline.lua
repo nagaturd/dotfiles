@@ -241,6 +241,13 @@ section.short_line_left[3] = {
 section.short_line_right[1] = {
   BufferIcon = {
     provider = 'BufferIcon',
+    condition = function()
+      if require('galaxyline.provider_buffer').get_buffer_type_icon() then
+        return true
+      else
+        return false
+      end
+    end,
     highlight = { colors.text, colors.bg1 },
     separator = '',
     separator_highlight = { colors.bg1, colors.bg }
