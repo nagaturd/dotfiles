@@ -66,21 +66,7 @@ pac_install() {
   print_msg "Updating package database..."
   sudo pacman -Syyu --noconfirm
   print_msg "Installing packages..."
-  if [ "$OS" == "WSL" ]; then
-    pacman -Qq | grep -qw fakeroot-tcp && pacman --noconfirm -Rsc fakeroot-tcp
-    sudo pacman -S --needed --noconfirm base-devel
-  fi
   sudo pacman -S --needed --noconfirm "${pkg_list[@]}"
-}
-
-install_helper() {
-  [ -f "/usr/bin/yay" ] || (
-    print_msg "Installing an AUR helper..."
-    cd /tmp
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg --noconfirm -si
-  )
 }
 
 aur_install() {
@@ -94,8 +80,6 @@ install_pkgs() {
     *Arch*)
       print_msg "System identified as Arch Linux..."
       pac_install
-      install_helper
-      aur_install
       ;;
     *)
       print_error "Unable to identify operating system! Could not install packages..."
@@ -114,7 +98,7 @@ bootstrap_zsh() {
 bootstrap_neovim() {
   print_msg "Bootstrapping Neovim..."
   print_msg "Installing Neovim plugin manager..."
-  [ ! -d "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim." ] \
+  [ ! -d "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim" ] \
     && git clone https://github.com/wbthomason/packer.nvim \
       "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim"
   print_msg "Installing Neovim plugins..."
