@@ -11,7 +11,12 @@ return {
           formatStdin = true
         }
       },
-      sh = { { formatCommand = 'shfmt -i 2 -ci -s -bn', formatStdin = true } }
+      sh = {
+        { formatCommand = 'shfmt -i 2 -ci -s -bn', formatStdin = true }, {
+          LintCommand = 'shellcheck -f gcc -x',
+          lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tote: %m' }
+        }
+      }
     }
   }
 }
