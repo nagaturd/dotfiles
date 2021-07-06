@@ -106,6 +106,10 @@ bootstrap_neovim() {
     "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua +PackerInstall"
 }
 
+bootstrap_yadm() {
+  yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
+}
+
 cleanup() {
   print_msg "Cleaning up files..."
   rm -f "${HOME}/README.md" "${HOME}/LICENSE"
