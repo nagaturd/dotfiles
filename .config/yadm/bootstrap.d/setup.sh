@@ -103,15 +103,12 @@ bootstrap_neovim() {
       "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim"
   print_msg "Installing Neovim plugins..."
   nvim -c "packadd packer.nvim" -u \
-    "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua +PackerInstall"
-}
-
-bootstrap_yadm() {
-  yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
+    "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua" +PackerInstall
 }
 
 cleanup() {
   print_msg "Cleaning up files..."
+  yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
   rm -f "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
