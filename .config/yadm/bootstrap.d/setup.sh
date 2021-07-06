@@ -92,7 +92,7 @@ bootstrap_zsh() {
   print_msg "Bootstrapping Zsh..."
   print_msg "Setting Zsh as default shell..."
   # Set default shell to Zsh.
-  sudo chsh -s "$(command -v zsh)" "${USER}"
+  sudo chsh -s /bin/zsh "${USER}"
 }
 
 bootstrap_neovim() {
