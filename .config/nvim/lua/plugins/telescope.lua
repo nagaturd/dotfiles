@@ -52,7 +52,7 @@ require('telescope').setup {
   },
   extensions = {
     fzy_native = { override_generic_sorter = false, override_file_sorter = true },
-    project = { base_dirs = { { '~/projects', max_depth = 3 } } }
+    project = { base_dirs = { { '~/', max_depth = 3 } } }
   }
 }
 
