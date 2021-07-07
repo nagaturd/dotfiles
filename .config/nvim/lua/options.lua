@@ -29,7 +29,7 @@ opt.sidescrolloff = 12; -- start scrolling this many columns from edge
 opt.laststatus = 2; -- always show statusline
 opt.wrap = false; -- display long lines as just one line
 opt.list = true;
-opt.listchars = { eol = '↲', tab = '»' };
+opt.listchars = { eol = '↲', tab = '» ' };
 opt.cursorline = true; -- highlights current line
 opt.showtabline = 1; -- show tabs
 opt.number = true; -- show numbered lines
