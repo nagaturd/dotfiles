@@ -34,8 +34,8 @@ g.nvim_tree_icons = {
   default = ' ',
   symlink = '',
   git = {
-    unstaged = '',
-    staged = '',
+    unstaged = '✗',
+    staged = '✓',
     unmerged = '',
     renamed = '',
     untracked = '',
@@ -52,7 +52,7 @@ g.nvim_tree_icons = {
     symlink = '',
     symlink_open = ''
   },
-  lsp = { hint = '', info = '', warning = '', error = '' }
+  lsp = { hint = '', info = '', warning = '', error = '' }
 }
 
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
