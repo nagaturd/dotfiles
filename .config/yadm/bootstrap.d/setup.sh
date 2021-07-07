@@ -87,7 +87,11 @@ cleanup() {
 }
 
 goodbye() {
-  print_msg "${YELLOW}Logout${NONE} then ${YELLOW}login${NONE} to see your new configuration!"
+  if [ "${USER}" == "root" ]; then
+    print_msg "Switching users..."
+  else
+    print_msg "${YELLOW}Logout${NONE} then ${YELLOW}login${NONE} to load your new configuration!"
+  fi
 }
 
 ### MAIN ###
