@@ -89,3 +89,4 @@ aur_install
 bootstrap_zsh
 bootstrap_neovim
 cleanup
+goodbye
