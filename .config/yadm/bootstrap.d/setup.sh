@@ -2,35 +2,15 @@
 
 ### VARIABLES & CONSTANTS ###
 
-git_host="github.com"
-git_user="brikehn"
-git_repo="dotfiles"
-git_url="https://${git_host}/${git_user}/"
-
 OS=$(uname -s)
 USER=$(id -u -n)
 
-## Colorize output.
-# shellcheck disable=SC2034
-red="\033[91m"
-# shellcheck disable=SC2034
-green="\033[92m"
-# shellcheck disable=SC2034
-blue="\033[94m"
-# shellcheck disable=SC2034
-yellow="\033[93m"
-# shellcheck disable=SC2034
-white="\033[97m"
-# shellcheck disable=SC2034
-no_color="\033[0m"
-
-# Set XDG directories.
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_DATA_HOME="${HOME}/.local/share"
-
-# Set Zsh configuration directory.
-export ZDOTDIR="${HOME}/.config/zsh"
+## Colors
+RED="\033[91m"
+GREEN="\033[92m"
+YELLOW="\033[93m"
+BLUE="\033[94m"
+NONE="\033[0m"
 
 pkg_list=(
   "git"
@@ -55,11 +35,11 @@ aur_pkg_list=(
 ### FUNCTIONS ###
 
 print_msg() {
-  echo -e "${green}=>${no_color}${white}" "${@}" "${no_color}" >&1
+  echo -e "${GREEN}=>${NONE}" "${@}" >&1
 }
 
 print_error() {
-  echo -e "${red}=> ERROR:${no_color}${white}" "${@}" "${no_color}" >&2
+  echo -e "${RED}=> ERROR:${NONE}" "${@}" >&2
 }
 
 pac_install() {
@@ -71,21 +51,7 @@ pac_install() {
 
 aur_install() {
   print_msg "Installing AUR packages..."
-  sudo pacman -S --needed --noconfirm "${aur_pkg_list[@]}"
-}
-
-install_pkgs() {
-  [ -f "/etc/os-release" ] && source /etc/os-release
-  case "${NAME}" in
-    *Arch*)
-      print_msg "System identified as Arch Linux..."
-      pac_install
-      ;;
-    *)
-      print_error "Unable to identify operating system! Could not install packages..."
-      exit 1
-      ;;
-  esac
+  yay -S --needed --noconfirm "${aur_pkg_list[@]}"
 }
 
 bootstrap_zsh() {
@@ -112,9 +78,14 @@ cleanup() {
   rm -f "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
+goodbye() {
+  echo -e "${BLUE}Logout${NONE} then ${BLUE}login${NONE} to see your new configuration!"
+}
+
 ### MAIN ###
 
-install_pkgs
+pac_install
+aur_install
 bootstrap_zsh
 bootstrap_neovim
 cleanup

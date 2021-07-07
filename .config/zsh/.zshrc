@@ -2,6 +2,7 @@
 
 # zshoptions
 setopt menucomplete
+setopt auto_cd # No need for 'cd' anymore
 setopt interactive_comments
 stty stop undef # Disable ctrl-s to freeze terminal
 zle_highlight=('paste:none')
