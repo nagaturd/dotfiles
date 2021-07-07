@@ -6,11 +6,11 @@ OS=$(uname -s)
 USER=$(id -u -n)
 
 ## Colors
-RED="\033[91m"
-GREEN="\033[92m"
-YELLOW="\033[93m"
-BLUE="\033[94m"
-NONE="\033[0m"
+BLUE="$(tput setaf 4)"
+YELLOW="$(tput setaf 3)"
+GREEN="$(tput setaf 2)"
+RED="$(tput setaf 1)"
+NONE="$(tput sgr0)"
 
 pkg_list=(
   "git"
