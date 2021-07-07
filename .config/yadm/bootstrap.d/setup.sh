@@ -87,7 +87,7 @@ cleanup() {
 }
 
 goodbye() {
-  echo -e "${BLUE}Successfully installed dotfiles!${NONE}"
+  print_msg "Successfully installed dotfiles!"
 }
 
 ### MAIN ###
