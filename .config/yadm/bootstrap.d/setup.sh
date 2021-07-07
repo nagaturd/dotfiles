@@ -87,11 +87,7 @@ cleanup() {
 }
 
 goodbye() {
-  if [ "${USER}" != "root" ]; then
-    print_msg "${YELLOW}Logout${NONE} then ${YELLOW}login${NONE} to load your new configuration!"
-  else
-    print_msg "Switching users..."
-  fi
+  echo -e "${BLUE}Successfully installed dotfiles!${NONE}"
 }
 
 ### MAIN ###
