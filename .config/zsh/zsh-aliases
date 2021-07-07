@@ -10,7 +10,7 @@ alias fgrep='fgrep --color=auto'
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
-alias ls="ls --color=auto"
+alias ls="ls -G"
 alias mkdir="mkdir -p"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
