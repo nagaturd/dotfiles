@@ -1,0 +1,91 @@
+#!/bin/sh
+
+### VARIABLES & CONSTANTS ###
+
+OS=$(uname -s)
+USER=$(id -u -n)
+
+## Colors
+BLUE="$(tput setaf 4)"
+YELLOW="$(tput setaf 3)"
+GREEN="$(tput setaf 2)"
+RED="$(tput setaf 1)"
+NONE="$(tput sgr0)"
+
+# Set XDG directories.
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+# Set Zsh configuration directory.
+export ZDOTDIR="${HOME}/.config/zsh"
+
+pkg_list=(
+  "git"
+  "zsh"
+  "zsh-completions"
+  "zsh-syntax-highlighting"
+  "zsh-autosuggestions"
+  "starship"
+  "tmux"
+  "neovim"
+  "nodejs"
+  "npm"
+  "unzip"
+  "ripgrep"
+  "fzy"
+  "go"
+  "shfmt"
+  "lua-format"
+)
+
+### FUNCTIONS ###
+
+print_msg() {
+  echo -e "${GREEN}=>${NONE}" "${@}" >&1
+}
+
+print_error() {
+  echo -e "${RED}=> ERROR:${NONE}" "${@}" >&2
+}
+
+brew_install() {
+  print_msg "Installing packages..."
+  sudo brew install "${pkg_list[@]}"
+}
+
+bootstrap_zsh() {
+  print_msg "Bootstrapping Zsh..."
+  print_msg "Setting Zsh as default shell..."
+  # Set default shell to Zsh.
+  sudo chsh -s /bin/zsh "${USER}"
+}
+
+bootstrap_neovim() {
+  print_msg "Bootstrapping Neovim..."
+  print_msg "Installing Neovim plugin manager..."
+  [ ! -d "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim" ] \
+    && git clone https://github.com/wbthomason/packer.nvim \
+      "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim"
+  print_msg "Installing Neovim plugins..."
+  nvim -u "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua" \
+    -c "packadd packer.nvim" +PackerInstall
+}
+
+cleanup() {
+  print_msg "Cleaning up files..."
+  yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
+  rm -f "${HOME}/README.md" "${HOME}/LICENSE"
+}
+
+goodbye() {
+  print_msg "Successfully installed dotfiles!"
+}
+
+### MAIN ###
+
+brew_install
+bootstrap_zsh
+bootstrap_neovim
+cleanup
+goodbye
