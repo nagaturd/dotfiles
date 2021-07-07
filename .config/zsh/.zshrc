@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 # zshoptions
 setopt menucomplete
@@ -15,14 +15,13 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # Include hidden files
-
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 # Functions
-source "$ZDOTDIR/zsh-functions"
+source "${ZDOTDIR}/zsh-functions"
 
 # Source some files
 zsh_add_file "zsh-aliases"

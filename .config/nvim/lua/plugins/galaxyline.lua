@@ -81,40 +81,13 @@ section.left[3] = {
   FileName = {
     provider = 'FileName',
     condition = condition.buffer_not_empty,
-    highlight = { colors.text, colors.bg2, 'bold' },
+    highlight = { colors.text, colors.bg2 },
     separator = '',
     separator_highlight = { colors.bg2, colors.bg1 }
   }
 }
 
 section.left[4] = {
-  DiffAdd = {
-    provider = 'DiffAdd',
-    condition = condition.hide_in_width,
-    icon = ' ',
-    highlight = { colors.text_dark, colors.bg }
-  }
-}
-
-section.left[5] = {
-  DiffModified = {
-    provider = 'DiffModified',
-    condition = condition.hide_in_width,
-    icon = ' ',
-    highlight = { colors.text_dark, colors.bg }
-  }
-}
-
-section.left[6] = {
-  DiffRemove = {
-    provider = 'DiffRemove',
-    condition = condition.hide_in_width,
-    icon = ' ',
-    highlight = { colors.text_dark, colors.bg }
-  }
-}
-
-section.left[7] = {
   CurrentDir = {
     provider = function()
       local dir_name = fn.fnamemodify(fn.getcwd(), ':t')
@@ -123,6 +96,33 @@ section.left[7] = {
     highlight = { colors.text_dark, colors.bg1 },
     separator = '',
     separator_highlight = { colors.bg1, colors.bg }
+  }
+}
+
+section.left[5] = {
+  DiffAdd = {
+    provider = 'DiffAdd',
+    condition = condition.hide_in_width,
+    icon = ' ',
+    highlight = { colors.text_dark, colors.bg }
+  }
+}
+
+section.left[6] = {
+  DiffModified = {
+    provider = 'DiffModified',
+    condition = condition.hide_in_width,
+    icon = ' ',
+    highlight = { colors.text_dark, colors.bg }
+  }
+}
+
+section.left[7] = {
+  DiffRemove = {
+    provider = 'DiffRemove',
+    condition = condition.hide_in_width,
+    icon = ' ',
+    highlight = { colors.text_dark, colors.bg }
   }
 }
 
