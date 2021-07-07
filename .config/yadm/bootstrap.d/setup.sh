@@ -12,6 +12,14 @@ GREEN="$(tput setaf 2)"
 RED="$(tput setaf 1)"
 NONE="$(tput sgr0)"
 
+# Set XDG directories.
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+# Set Zsh configuration directory.
+export ZDOTDIR="${HOME}/.config/zsh"
+
 pkg_list=(
   "git"
   "zsh"
@@ -68,8 +76,8 @@ bootstrap_neovim() {
     && git clone https://github.com/wbthomason/packer.nvim \
       "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim"
   print_msg "Installing Neovim plugins..."
-  nvim -c "packadd packer.nvim" -u \
-    "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua" +PackerInstall
+  nvim -u "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua" \
+    -c "packadd packer.nvim" +PackerInstall
 }
 
 cleanup() {
