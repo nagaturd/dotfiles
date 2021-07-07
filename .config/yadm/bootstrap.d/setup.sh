@@ -25,6 +25,7 @@ pkg_list=(
   "zsh"
   "zsh-completions"
   "zsh-syntax-highlighting"
+  "zsh-autosuggestions"
   "starship"
   "tmux"
   "neovim"
