@@ -79,7 +79,7 @@ cleanup() {
 }
 
 goodbye() {
-  echo -e "${BLUE}Logout${NONE} then ${BLUE}login${NONE} to see your new configuration!"
+  print_msg "${YELLOW}Logout${NONE} then ${YELLOW}login${NONE} to see your new configuration!"
 }
 
 ### MAIN ###
