@@ -1,5 +1,5 @@
-#!/bin/zsh
-HISTFILE="$XDG_CACHE_HOME"/zsh/history
+#!/bin/sh
+HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 

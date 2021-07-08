@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 # Default programs:
 export EDITOR="nvim"
@@ -11,9 +11,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
-# if [ ! -d "$HOME/.cache/zsh" ]; then
-# 	mkdir -p "$HOME/.cache/zsh"
-# fi
+if [ ! -d "$HOME/.cache/zsh" ]; then
+  mkdir -p "$HOME/.cache/zsh"
+fi
 
 # Starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
