@@ -21,7 +21,6 @@ export ZDOTDIR="${HOME}/.config/zsh"
 
 pkg_list=(
   "git"
-  "zsh"
   "zsh-completions"
   "zsh-syntax-highlighting"
   "zsh-autosuggestions"
@@ -42,11 +41,11 @@ pkg_list=(
 ### FUNCTIONS ###
 
 print_msg() {
-  echo "${GREEN}=>${NONE}" "${@}" >&1
+  printf "${GREEN}=>${NONE} %s\n" "${@}" >&1
 }
 
 print_error() {
-  echo "${RED}=> ERROR:${NONE}" "${@}" >&2
+  printf "${RED}=> ERROR:${NONE} %s\n" "${@}" >&2
 }
 
 brew_install() {

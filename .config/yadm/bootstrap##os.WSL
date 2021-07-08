@@ -44,11 +44,11 @@ aur_pkg_list=(
 ### FUNCTIONS ###
 
 print_msg() {
-  echo -e "${GREEN}=>${NONE}" "${@}" >&1
+  printf "${GREEN}=>${NONE} %s\n" "${@}" >&1
 }
 
 print_error() {
-  echo -e "${RED}=> ERROR:${NONE}" "${@}" >&2
+  printf "${RED}=> ERROR:${NONE} %s\n" "${@}" >&2
 }
 
 pac_install() {
