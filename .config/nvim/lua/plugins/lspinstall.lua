@@ -7,6 +7,7 @@ local on_attach = function()
     hint_prefix = '',
     use_lspsaga = true
   })
+
   -- mappings
   -- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- local opts = { noremap = true, silent = true }
@@ -48,6 +49,19 @@ local function make_config()
   }
 end
 
+local function install_servers()
+  local required_servers = {
+    'efm', 'lua', 'bash', 'graphql', 'cpp', 'typescript', 'python',
+    'dockerfile', 'html', 'css', 'json', 'rust', 'svelte', 'vim', 'yaml'
+  }
+  local installed_servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(required_servers) do
+    if not vim.tbl_contains(installed_servers, server) then
+      require'lspinstall'.install_server(server)
+    end
+  end
+end
+
 local function setup_servers()
   require'lspinstall'.setup()
 
@@ -64,6 +78,7 @@ local function setup_servers()
   end
 end
 
+install_servers()
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
