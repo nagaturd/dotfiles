@@ -1,6 +1,6 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function()
   require('lsp_signature').on_attach({
     bind = true,
     handler_opts = { border = 'single' },
