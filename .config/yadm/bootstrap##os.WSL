@@ -77,13 +77,17 @@ bootstrap_neovim() {
     && git clone https://github.com/wbthomason/packer.nvim \
       "${XDG_DATA_HOME}/nvim/site/pack/packer/start/packer.nvim"
   print_msg "Installing Neovim plugins..."
-  nvim -u "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua" \
-    -c "packadd packer.nvim" +PackerInstall
+  nvim \
+    -u "${XDG_CONFIG_HOME}/nvim/lua/plugins/init.lua" \
+    -c "packadd packer.nvim" \
+    +"autocmd User PackerComplete | qall" \
+    +PackerSync
 }
 
 cleanup() {
   print_msg "Cleaning up files..."
-  yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" "${HOME}/README.md" "${HOME}/LICENSE"
+  yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" \
+    "${HOME}/README.md" "${HOME}/LICENSE"
   rm -f "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
