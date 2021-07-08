@@ -1,7 +1,6 @@
 #!/bin/sh
 
 ### VARIABLES & CONSTANTS ###
-
 OS=$(uname -s)
 USER=$(id -u -n)
 
@@ -36,22 +35,27 @@ pkg_list=(
   "fzy"
   "go"
   "shfmt"
-  "lua-format"
+  "cmake"
+  "luarocks"
 )
 
 ### FUNCTIONS ###
 
 print_msg() {
-  echo -e "${GREEN}=>${NONE}" "${@}" >&1
+  echo "${GREEN}=>${NONE}" "${@}" >&1
 }
 
 print_error() {
-  echo -e "${RED}=> ERROR:${NONE}" "${@}" >&2
+  echo "${RED}=> ERROR:${NONE}" "${@}" >&2
 }
 
 brew_install() {
   print_msg "Installing packages..."
   brew install "${pkg_list[@]}"
+}
+
+install_lua_format() {
+  luarocks install --server=https://luarocks.org/dev luaformatter
 }
 
 bootstrap_zsh() {
@@ -85,6 +89,7 @@ goodbye() {
 ### MAIN ###
 
 brew_install
+install_lua_format
 bootstrap_zsh
 bootstrap_neovim
 cleanup
