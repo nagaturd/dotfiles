@@ -31,16 +31,16 @@ g.nvim_tree_window_picker_exclude = {
 g.nvim_tree_special_files = { 'README.md', 'Makefile', 'MAKEFILE' }
 g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 0 }
 g.nvim_tree_icons = {
-  default = ' ',
+  default = '',
   symlink = '',
   git = {
-    unstaged = '✗',
-    staged = '✓',
-    unmerged = '',
-    renamed = '',
-    untracked = '',
-    deleted = '',
-    ignored = ''
+    unstaged = '',
+    staged = 'S',
+    unmerged = '',
+    renamed = '➜',
+    untracked = 'U',
+    deleted = '✘',
+    ignored = '?'
   },
   folder = {
     arrow_open = '',
