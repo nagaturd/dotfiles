@@ -77,7 +77,7 @@ bootstrap_neovim() {
 
 cleanup() {
   print_msg "Cleaning up files..."
-  yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
+  yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" "${HOME}/README.md" "${HOME}/LICENSE"
   rm -f "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
