@@ -1,5 +1,4 @@
-## Dotfiles
-
+# Dotfiles
 These are my dotfiles, take 'em or leave 'em.
 
 # Installation
