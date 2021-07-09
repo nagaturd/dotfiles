@@ -56,7 +56,7 @@ which handles configuration and launching of the language servers.
 To install additional language servers, run `:LspInstall <language>` provided by [kabouzeid/nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall).
 You can see the supported language installers on the [kabouzeid/nvim-lspinstall repo](https://github.com/kabouzeid/nvim-lspinstall#bundled-installers).
 
-#### These languages are already installed and configured:
+**Installed Language Servers:**
 * efm
 * lua
 * bash
