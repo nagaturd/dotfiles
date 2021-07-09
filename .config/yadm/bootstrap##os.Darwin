@@ -84,6 +84,12 @@ bootstrap_neovim() {
     +PackerSync
 }
 
+cleanup_options() {
+  printf "${YELLOW}%s${NONE}\n" "Cleanup home directory?">&1
+  printf "${YELLOW}  y)${NONE}  %s\n" "Yes. This removes unused dotfiles." >&1
+  printf "${YELLOW}  n)${NONE}  %s\n\n" "No. Skip this step and leave all existing dotfiles as is." >&1
+}
+
 cleanup_home() {
   dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
   ".gitconfig" ".profile" ".vim" ".viminfo" ".vimrc")
