@@ -1,21 +1,27 @@
 # Dotfiles
 These are my dotfiles, take 'em or leave 'em.
 
-# Installation
+# Bootstrapping
 
-To install, run:
+Included is a bootstrap script to make the initial setup process easier on a new machine.
+
+Follow the directions for your operating system as shown below.
+
 ```console
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/scripts/bootstrap/install.sh)"
 ```
+**Arch Linux:** Run as `root`
 
-_There are some prompts at the beginning for initial setup._
+**macOS:** Run as user
 
-### What does it do?
-- Set a root password
-- Set up a new user
-- Install packages
-- Install an AUR helper ([yay](https://github.com/Jguer/yay))
-- Install [dotfiles](https://github.com/brikehn/dotfiles) and manage with [yadm](https://yadm.io).
+## What does it do?
+
+### For new setups:
+- Set a root password (only on Arch Linux)
+- Set up a new user (only on Arch Linux)
+- Install [packages](#Packages)
+- Install an AUR helper ([yay](https://github.com/Jguer/yay) only on Arch Linux)
+- Install [dotfiles](https://github.com/brikehn/dotfiles) and manage with [yadm](https://yadm.io)
 
 ### Packages
 - zsh - for a better shell experience
@@ -32,20 +38,49 @@ _There are some prompts at the beginning for initial setup._
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - grep search tool
 - [fzy](https://github.com/jhawthorn/fzy) - fuzzy finder
 
-# Post-Installation
-## Git
+# Dotfiles
+To manually install dotfiles:
+```console
+# Install 'yadm'
+# Arch Linux: sudo yay -S yadm
+# macOS: brew install yadm
+yadm clone https://github.com/brikehn/dotfiles
+```
+
+To update dotfiles:
+```console
+yadm pull
+```
+
+To manually run the bootstrapper:
+```console
+yadm bootstrap
+```
+
+# Git
 ```console
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 git config --global credential.helper store
 ```
-*Should probably figure out a more secure way to store my git credentials
-but this works for now...*
+_Should probably figure out a more secure way to store my git credentials
+but this works for now..._
 
-## Fonts
-Currently, the font I'm using is mononoki patched with Nerd Fonts (specifically the Mono variant) since I've found it to work best for my current setup - especially with Windows Terminal which is my current terminal emulator. I'm not sure how things look in other terminals with other fonts but my other go to fonts include Hack and JetBrainsMono which can both be found in my [fonts](https://github.com/brikehn/dotfiles/tree/main/.config/fonts).
+# Fonts
+A Nerd Font is recommended to get the extended icons support needed to display things properly.
 
-## Install language servers
+You can find the fonts I use from the links provided below or use one of the pre-installed fonts located in the `.config/fonts` folder.
+
+| Font | Link |
+| ---- | -------- |
+| mononoki Nerd Font | [Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Mononoki.zip) |
+| Hack Nerd Font | [Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip) |
+| JetBrainsMono Nerd Font | [Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip) |
+
+Note: For Windows Terminal, the italics don't work correctly with the mononoki Nerd Font above. Instead, use my [custom patched version of mononoki Nerd Font](https://github.com/brikehn/dotfiles/tree/main/.config/fonts/Mononoki).
+
+# Neovim
+## Language Servers
 Neovim 0.5+ has a built-in LSP client that allows for language features such as
 go-to-definition, find-references, hover, completion, rename, format, refactor, etc.,
 using semantic whole-project analysis
@@ -56,7 +91,7 @@ which handles configuration and launching of the language servers.
 To install additional language servers, run `:LspInstall <language>` provided by [kabouzeid/nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall).
 You can see the supported language installers on the [kabouzeid/nvim-lspinstall repo](https://github.com/kabouzeid/nvim-lspinstall#bundled-installers).
 
-### Installed Language Servers:
+### Installed language servers
 * efm
 * lua
 * bash
@@ -95,11 +130,23 @@ autocmd BufWritePre *.<ext> lua vim.lsp.buf.formatting_sync(nil, 100)
 
 Formatters must be individually installed (e.g. prettier, lua-format, shfmt, etc.). 
 
-#### Languages installed and configured:
-| Language    | Formatter                  |
+### Installed Formatters/Linters
+| Language    | Formatter/Linter           |
 | :---------- | :----------                |
 | lua         | lua-format                 |
 | bash        | shfmt, shellcheck          |
 | javascript, javascriptreact, typescript, typescriptreact | typescript-language-server (built-in) |
+
+# Terminal Emulators
+
+### Recommendations
+| OS | Terminal |
+| --- | --- |
+| Windows | **Windows Terminal**, [alacritty](https://github.com/alacritty/alacritty) |
+| macOS | [**alacritty**](https://github.com/alacritty/alacritty), iTerm 2 |
+| Linux | [alacritty](https://github.com/alacritty/alacritty), [kitty](https://sw.kovidgoyal.net/kitty) |
+
+**bold** - current
+
 ----
 #### Inspired by [LARBS](https://larbs.xyz) and [pwyde/dotfiles](https://github.com/pwyde/dotfiles)
