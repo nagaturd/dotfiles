@@ -6,3 +6,5 @@
 	rebase = false
 [core]
 	editor = nvim
+[credential]
+	helper = store
