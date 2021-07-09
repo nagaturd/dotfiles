@@ -1,9 +1,5 @@
 #!/bin/sh
 #
-# Source some files
-zsh_add_file "zsh-aliases"
-zsh_add_file "zsh-exports"
-zsh_add_file "zsh-vim-mode"
 
 # zshoptions
 setopt menucomplete
@@ -28,6 +24,11 @@ zle -N down-line-or-beginning-search
 
 # Functions
 source "${ZDOTDIR}/zsh-functions"
+
+# Source some files
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-exports"
+zsh_add_file "zsh-vim-mode"
 
 # Plugins
 zsh_add_plugin "zsh-completions"
