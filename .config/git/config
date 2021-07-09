@@ -4,3 +4,5 @@
 	email = thebriankwon@gmail.com
 [pull]
 	rebase = false
+[core]
+	editor = nvim
