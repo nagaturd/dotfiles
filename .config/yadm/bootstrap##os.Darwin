@@ -84,10 +84,36 @@ bootstrap_neovim() {
     +PackerSync
 }
 
-cleanup() {
-  print_msg "Cleaning up files..."
-  yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" "${HOME}/README.md" "${HOME}/LICENSE"
-  rm -f "${HOME}/README.md" "${HOME}/LICENSE"
+cleanup_home() {
+  dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
+  ".gitconfig" ".profile" ".vim" ".viminfo" ".vimrc")
+  found=0 # Set to 1 if file found in the for loop.
+  # Find any pre-esisting dotfiles.
+  for file in "${dotfiles[@]}"; do
+    if [ -e "${HOME}/${file}" ]; then
+        found=1; break
+    fi
+  done
+  # If true, offer to cleanup home directory.
+  if [ "${found}" = 1 ]; then
+    cleanup_options
+    while [ -z "${cleanup_option}" ]; do
+      printf "  %s${YELLOW} %s${NONE}: " "Option" "[y/n]"
+      read -r opt
+      case "${opt}" in
+        [y]|[Y]*) cleanup_option=1 ;;
+        [n]|[N]*) cleanup_option=2 ;;
+        *) printf "Invalid option '${opt}'.\n" >&2; cleanup_options ;;
+      esac
+    done
+    if [ "${cleanup_option}" = 1 ]; then
+      print_msg "Cleaning home directory..."
+      # Cleanup user's home directory.
+      for file in "${dotfiles[@]}"; do
+          [ -e "${HOME}/${file}" ] && rm -ri "${HOME:?}/${file}"
+      done
+    fi
+  fi
 }
 
 goodbye() {
@@ -100,5 +126,5 @@ brew_install
 install_lua_format
 bootstrap_zsh
 bootstrap_neovim
-cleanup
+cleanup_home
 goodbye

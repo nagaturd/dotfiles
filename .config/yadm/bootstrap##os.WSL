@@ -67,7 +67,11 @@ aur_install() {
 bootstrap_zsh() {
   print_msg "Bootstrapping Zsh..."
   print_msg "Setting Zsh as default shell..."
-  # Set default shell to Zsh.
+  zsh_dotfiles=(".zsh" ".zlogin" ".zlogout" ".zprofile" ".zshenv" ".zshrc")
+  # Delete default Zsh configuration files if present.
+  for file in "${zsh_dotfiles[@]}"; do
+    [ -e "${HOME}/${file}" ] && rm -rf "${HOME:?}/${file}" >/dev/null 2>&1
+  done
   sudo chsh -s /bin/zsh "${USER}"
 }
 
@@ -85,11 +89,42 @@ bootstrap_neovim() {
     +PackerSync
 }
 
-cleanup() {
-  print_msg "Cleaning up files..."
-  yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" \
-    "${HOME}/README.md" "${HOME}/LICENSE"
-  rm -f "${HOME}/README.md" "${HOME}/LICENSE"
+cleanup_options() {
+  printf "${YELLOW}%s${NONE}\n" "Cleanup home directory?">&1
+  printf "${YELLOW} y)${NONE}%s\n" "Yes. This removes unused dotfiles." >&1
+  printf "${YELLOW} n)${NONE}%s\n\n" "No. Skip this step and leave all existing dotfiles as is." >&1
+}
+
+cleanup_home() {
+  dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
+  ".gitconfig" ".profile" ".vim" ".viminfo" ".vimrc")
+  found=0 # Set to 1 if file found in the for loop.
+  # Find any pre-esisting dotfiles.
+  for file in "${dotfiles[@]}"; do
+    if [ -e "${HOME}/${file}" ]; then
+        found=1; break
+    fi
+  done
+  # If true, offer to cleanup home directory.
+  if [ "${found}" = 1 ]; then
+    cleanup_options
+    while [ -z "${cleanup_option}" ]; do
+      printf "  %s${YELLOW} %s${NONE}: " "Option" "[y/n]"
+      read -r opt
+      case "${opt}" in
+        [y]|[Y]*) cleanup_option=1 ;;
+        [n]|[N]*) cleanup_option=2 ;;
+        *) printf "Invalid option '${opt}'.\n" >&2; cleanup_options ;;
+      esac
+    done
+    if [ "${cleanup_option}" = 1 ]; then
+      print_msg "Cleaning home directory..."
+      # Cleanup user's home directory.
+      for file in "${dotfiles[@]}"; do
+          [ -e "${HOME}/${file}" ] && rm -ri "${HOME:?}/${file}"
+      done
+    fi
+  fi
 }
 
 goodbye() {
@@ -102,5 +137,5 @@ pac_install
 aur_install
 bootstrap_zsh
 bootstrap_neovim
-cleanup
+cleanup_home
 goodbye
