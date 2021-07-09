@@ -35,7 +35,6 @@ require('packer').startup({
     use 'nvim-lua/plenary.nvim' -- dependency for telescope
     use 'nvim-telescope/telescope.nvim' -- telescope
     use 'nvim-telescope/telescope-fzy-native.nvim' -- telescope fzy
-    use 'nvim-telescope/telescope-project.nvim' -- project management
     -- Snippets
     -- use 'L3MON4D3/LuaSnip' -- snippet plugin
     -- use 'rafamadriz/friendly_snippets' -- community snippets collection
