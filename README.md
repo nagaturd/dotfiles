@@ -56,7 +56,7 @@ which handles configuration and launching of the language servers.
 To install additional language servers, run `:LspInstall <language>` provided by [kabouzeid/nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall).
 You can see the supported language installers on the [kabouzeid/nvim-lspinstall repo](https://github.com/kabouzeid/nvim-lspinstall#bundled-installers).
 
-### These languages are already installed and configured:
+#### These languages are already installed and configured:
 * efm
 * lua
 * bash
@@ -95,7 +95,7 @@ autocmd BufWritePre *.<ext> lua vim.lsp.buf.formatting_sync(nil, 100)
 
 Formatters must be individually installed (e.g. prettier, lua-format, shfmt, etc.). 
 
-MODESU comes with these languages installed and configured:
+#### Languages installed and configured:
 | Language    | Formatter                  |
 | :---------- | :----------                |
 | lua         | lua-format                 |
