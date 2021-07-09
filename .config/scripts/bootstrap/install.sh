@@ -66,15 +66,15 @@ find_os() {
       is_root
       DISTRO=$(sed -n 's/^NAME=\(.*\)/\1/p' </etc/os-release)
       case "${DISTRO}" in
-        *Arch*) sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/bootstrap/os/arch.sh)" ;;
-        *Debian*) sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/bootstrap/os/debian.sh)" ;;
+        *Arch*) sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/scripts/bootstrap/os/arch.sh)" ;;
+        *Debian*) sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/scripts/bootstrap/os/debian.sh)" ;;
         *)
           print_error "Sorry, your Linux distribution is not supported."
           exit 1
           ;;
       esac
       ;;
-    "Darwin") sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/bootstrap/os/macos.sh)" ;;
+    "Darwin") sh -c "$(curl -fsSL https://raw.githubusercontent.com/brikehn/dotfiles/main/.config/scripts/bootstrap/os/macos.sh)" ;;
     *)
       print_error "Operating system not supported, exiting..."
       exit 1
