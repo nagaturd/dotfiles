@@ -61,7 +61,7 @@ install_lua_format() {
 
 bootstrap_zsh() {
   print_msg "Bootstrapping Zsh..."
-  zsh_dotfiles=(".zsh" ".zlogin" ".zlogout" ".zprofile" ".zshenv" ".zshrc")
+  zsh_dotfiles=(".zsh" ".zlogin" ".zlogout" ".zshenv" ".zshrc")
   # Delete default Zsh configuration files if present.
   for file in "${zsh_dotfiles[@]}"; do
     [ -e "${HOME}/${file}" ] && rm -rf "${HOME:?}/${file}" >/dev/null 2>&1
