@@ -61,8 +61,12 @@ install_lua_format() {
 
 bootstrap_zsh() {
   print_msg "Bootstrapping Zsh..."
+  zsh_dotfiles=(".zsh" ".zlogin" ".zlogout" ".zprofile" ".zshenv" ".zshrc")
+  # Delete default Zsh configuration files if present.
+  for file in "${zsh_dotfiles[@]}"; do
+    [ -e "${HOME}/${file}" ] && rm -rf "${HOME:?}/${file}" >/dev/null 2>&1
+  done
   print_msg "Setting Zsh as default shell..."
-  # Set default shell to Zsh.
   chsh -s /bin/zsh "${USER}"
 }
 
