@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# Source some files
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-exports"
+zsh_add_file "zsh-vim-mode"
 
 # zshoptions
 setopt menucomplete
@@ -12,6 +17,7 @@ unsetopt BEEP
 # Completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # Include hidden files
@@ -22,11 +28,6 @@ zle -N down-line-or-beginning-search
 
 # Functions
 source "${ZDOTDIR}/zsh-functions"
-
-# Source some files
-zsh_add_file "zsh-aliases"
-zsh_add_file "zsh-exports"
-zsh_add_file "zsh-vim-mode"
 
 # Plugins
 zsh_add_plugin "zsh-completions"
