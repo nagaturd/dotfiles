@@ -94,10 +94,10 @@ cleanup_home() {
   dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
   ".gitconfig" ".profile" ".vim" ".viminfo" ".vimrc")
   found=0 # Set to 1 if file found in the for loop.
-  # Find any pre-esisting dotfiles.
+  # Find any pre-existing dotfiles.
   for file in "${dotfiles[@]}"; do
     if [ -e "${HOME}/${file}" ]; then
-        found=1; break
+      found=1; break
     fi
   done
   # If true, offer to cleanup home directory.
