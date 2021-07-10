@@ -97,7 +97,7 @@ cleanup_options() {
 
 cleanup_home() {
   dotfiles=(".bash_history" ".bash_logout" ".bash_profile" ".bashrc" \
-  ".gitconfig" ".profile" ".vim" ".viminfo" ".vimrc")
+  ".gitconfig" ".profile" ".vim" ".viminfo" ".vimrc" ".lesshst")
   found=0 # Set to 1 if file found in the for loop.
   # Find any pre-existing dotfiles.
   for file in "${dotfiles[@]}"; do
