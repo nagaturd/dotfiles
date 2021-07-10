@@ -41,3 +41,4 @@ opt.splitbelow = true; -- horizontal splits will automatically be below
 opt.splitright = true; -- vertical splits will automatically be to the right
 opt.hidden = true; -- required to keep multiple buffers open
 opt.updatetime = 50; -- increase how often updates happen
+opt.clipboard:append('unnamedplus'); -- clipboard
