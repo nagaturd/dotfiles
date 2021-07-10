@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Brian Kwon
+	email = thebriankwon@gmail.com
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+[credential]
+	helper = osxkeychain
