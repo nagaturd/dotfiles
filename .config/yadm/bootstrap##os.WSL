@@ -35,6 +35,7 @@ pkg_list=(
   "unzip"
   "ripgrep"
   "openssh"
+  "docker"
   "gnupg"
   "fzy"
   "shfmt"

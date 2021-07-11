@@ -35,6 +35,7 @@ pkg_list=(
   "fzy"
   "go"
   "shfmt"
+  "docker"
   "cmake"
   "luarocks"
   "alacritty"
