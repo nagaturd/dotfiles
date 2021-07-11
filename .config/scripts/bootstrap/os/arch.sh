@@ -71,6 +71,14 @@ initialize_keys() {
   pacman-key --init && pacman-key --populate
 }
 
+# Rank mirrors by speed
+update_mirrors() {
+  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+  curl -s "https://archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4&use_mirror_status=on" \
+    | sed -e 's/^#Server/Server/' -e '/^#/d' \
+    | rankmirrors -n 5 /etc/pacman.d/mirrorlist.backup >/etc/pacman.d/mirrorlist
+}
+
 # Install required dependencies
 install_pkgs() {
   print_msg "Updating package database..."
