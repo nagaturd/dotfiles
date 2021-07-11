@@ -94,7 +94,7 @@ section.left[4] = {
       return '  ' .. dir_name .. ' '
     end,
     highlight = { colors.text_dark, colors.bg1 },
-    separator = '',
+    separator = ' ',
     separator_highlight = { colors.bg1, colors.bg }
   }
 }

@@ -15,6 +15,7 @@ DOTFILES_REPO="https://github.com/brikehn/dotfiles"
 # List of packages to install with pacman
 pkg_list=(
   "base-devel"
+  "pacman-contrib"
   "git"
 )
 

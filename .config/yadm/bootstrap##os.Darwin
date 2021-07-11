@@ -4,6 +4,9 @@
 OS=$(uname -s)
 USER=$(id -u -n)
 
+GIT_USER="brikehn"
+GIT_REPO="dotfiles"
+
 ## Colors
 BLUE="$(tput setaf 4)"
 YELLOW="$(tput setaf 3)"
@@ -36,6 +39,7 @@ pkg_list=(
   "go"
   "shfmt"
   "docker"
+  "docker-compose"
   "cmake"
   "luarocks"
   "alacritty"
@@ -83,6 +87,16 @@ bootstrap_neovim() {
     -c "packadd packer.nvim" \
     +"autocmd User PackerComplete | qall" \
     +PackerSync
+}
+
+bootstrap_ssh() {
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_ed25519
+}
+
+update_yadm_repo() {
+  print_msg "Updating yadm repo origin URL..."
+  yadm remote set-url origin "git@github.com/${GIT_USER}/${GIT_REPO}.git"
 }
 
 cleanup_options() {
@@ -133,5 +147,7 @@ brew_install
 install_lua_format
 bootstrap_zsh
 bootstrap_neovim
+bootstrap_ssh
+update_yadm_repo
 cleanup_home
 goodbye
