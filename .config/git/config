@@ -6,3 +6,5 @@
 	rebase = false
 [core]
 	editor = nvim
+[credential]
+	helper = store --file "${XDG_CONFIG_HOME}/git/.git-credentials"
