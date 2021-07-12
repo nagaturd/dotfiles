@@ -79,22 +79,23 @@ To add encrypted files, edit `.config/yadm/encrypt` and add the files you want t
 ```console
 yadm encrypt
 ```
+
 And make sure you add `.local/share/yadm/archive` to your repository
 ```console
 yadm add .local/share/yadm/archive
 ```
 
-For more info, visit the [**yadm docs**](https://yadm.io/docs/overview)
+For more info, visit the [**yadm documentation**](https://yadm.io/docs/overview)
 
 # Additional Info
 ## Git
-Update git config with your own information ([**git-config docs**](https://git-scm.com/docs/git-config))
+Update git config with your own information ([**git-config documentation**](https://git-scm.com/docs/git-config))
 ```console
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-You can store your git credentials to skip entering your password each time you push changes to a git remote ([**gitcredentials docs**](https://git-scm.com/docs/gitcredentials))
+You can store your git credentials to skip entering your password each time you push changes to a git remote ([**gitcredentials documentation**](https://git-scm.com/docs/gitcredentials))
 
 **This method is not recommended because it stores your git credentials in plaintext in `~/.git-credentials`**
 ```console
@@ -108,6 +109,8 @@ For macOS, you can also use `osxkeychain` as your `credential.helper`
 git config --global credential.helper osxkeychain
 ```
 
+For more information, visit the [**Git documentation**](https://git-scm.com/docs)
+
 ## Fonts
 A Nerd Font is recommended to get the extended icons support needed to display things properly.
 
@@ -120,7 +123,7 @@ You can download fonts from [**nerdfonts.com**](https://www.nerdfonts.com/font-d
 | Hack Nerd Font | [Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip) |
 | JetBrainsMono Nerd Font | [Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip) |
 
-**Note: For Windows Terminal, the italics don't work correctly with the mononoki Nerd Font above. Instead, use my [custom patched version of mononoki Nerd Font](https://github.com/brikehn/dotfiles/tree/main/.config/fonts/Mononoki).**
+**Note:** For Windows Terminal, the italics don't work correctly with the mononoki Nerd Font above. Instead, use my [**custom patched version of mononoki Nerd Font**](https://github.com/brikehn/dotfiles/tree/main/.config/fonts/Mononoki).
 
 ## Neovim
 ### Language Servers
@@ -174,10 +177,59 @@ Formatters must be individually installed (e.g. prettier, lua-format, shfmt, etc
 
 ### Installed Formatters/Linters
 | Language    | Formatter/Linter           |
-| :---------- | :----------                |
+| ----------- | -----------                |
 | lua         | lua-format                 |
 | bash        | shfmt, shellcheck          |
 | javascript, javascriptreact, typescript, typescriptreact | typescript-language-server (built-in) |
+
+## Docker
+[**Docker**](https://docs.docker.com/engine/) and [**docker-compose**](https://docs.docker.com/compose/) are installed by the bootstrap process.
+
+**My docker workflow in WSL:**
+
+Create a new tmux session
+```console
+tmux new -s docker
+```
+
+Start docker daemon
+```console
+sudo dockerd
+```
+
+<kbd>Ctrl + a</kbd> <kbd>d</kbd> to detach from tmux session
+
+For more information, see the [**Docker documentation**](https://docs.docker.com/)
+
+**Note:** There are other ways to [**run docker in WSL**](https://docs.docker.com/docker-for-windows/wsl/) - with [**Docker Desktop for Windows**](https://docs.docker.com/docker-for-windows/install/) or using a systemd bottle ([**subsystemctl**](https://github.com/sorah/subsystemctl) 
+or [**genie**](https://github.com/arkane-systems/genie)) - but I found my method the simplest to setup since I already utilize tmux in my workflow.
+
+## Tmux
+<kbd>Ctrl + b</kbd> prefix is remapped to <kbd>Ctrl + a</kbd> because I think it's easier to input.
+
+### Vim-Like Keybinds
+
+**Navigate Panes**
+
+Keybind | Action
+--------|-------
+<kbd>Ctrl + a</kbd> <kbd>h</kbd> | move one pane to the left
+<kbd>Ctrl + a</kbd> <kbd>j</kbd> | move one pane to the bottom
+<kbd>Ctrl + a</kbd> <kbd>k</kbd> | move one pane to the top
+<kbd>Ctrl + a</kbd> <kbd>l</kbd> | move one pane to the right
+
+**Resize Panes**
+
+Keybind | Action
+--------|-------
+<kbd>Ctrl + a</kbd> <kbd><</kbd> | decrease pane width
+<kbd>Ctrl + a</kbd> <kbd>></kbd> | increase pane width
+<kbd>Ctrl + a</kbd> <kbd>-</kbd> | decrease pane height
+<kbd>Ctrl + a</kbd> <kbd>+</kbd> | increase pane height
+  
+For more information, read the [**tmux wiki**](https://github.com/tmux/tmux/wiki)
+
+For an overview of tmux commands, visit [**tmuxcheatsheet.com**](https://tmuxcheatsheet.com)
 
 ## Terminal Emulators
 
@@ -188,7 +240,7 @@ Formatters must be individually installed (e.g. prettier, lua-format, shfmt, etc
 | macOS | [**alacritty**](https://github.com/alacritty/alacritty), iTerm 2 |
 | Linux | [alacritty](https://github.com/alacritty/alacritty), [kitty](https://sw.kovidgoyal.net/kitty) |
 
-**bold** - current
+**bold** - what I currently use
 
 ----
 #### Inspired by [**LARBS**](https://larbs.xyz) and [**pwyde/dotfiles**](https://github.com/pwyde/dotfiles)
