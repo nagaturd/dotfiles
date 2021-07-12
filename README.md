@@ -97,12 +97,12 @@ git config --global user.name "Your Name"
 
 You can store your git credentials to skip entering your password each time you push changes to a git remote ([**gitcredentials documentation**](https://git-scm.com/docs/gitcredentials))
 
-**This method is not recommended because it stores your git credentials in plaintext in `~/.git-credentials`**
+**This method is only recommended on a secure personal machine because it stores your git credentials in plaintext in `~/.git-credentials`**
 ```console
 git config --global credential.helper store
 ```
 
-Another method is to use SSH keys combined with [**yadm encryption**](https://yadm.io/docs/encryption) for storing those keys in an encrypted format ([**GitHub SSH Setup**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh))
+Another method is to use SSH keys, combined with [**yadm encryption**](https://yadm.io/docs/encryption) for storing those keys in an encrypted format ([**GitHub SSH Setup**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)).
 
 For macOS, you can also use `osxkeychain` as your `credential.helper`
 ```console
