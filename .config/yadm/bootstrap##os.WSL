@@ -107,7 +107,7 @@ bootstrap_ssh() {
 
 update_yadm_repo() {
   print_msg "Updating yadm repo origin URL..."
-  yadm remote set-url origin "git@github.com/${GIT_USER}/${GIT_REPO}.git"
+  yadm remote set-url origin "git@github.com:${GIT_USER}/${GIT_REPO}.git"
 }
 
 cleanup_options() {
