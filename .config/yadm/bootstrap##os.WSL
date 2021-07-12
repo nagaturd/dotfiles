@@ -100,16 +100,6 @@ bootstrap_neovim() {
   sudo mv /tmp/win32yank.exe /usr/local/bin/
 }
 
-bootstrap_ssh() {
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_ed25519
-}
-
-update_yadm_repo() {
-  print_msg "Updating yadm repo origin URL..."
-  yadm remote set-url origin "git@github.com:${GIT_USER}/${GIT_REPO}.git"
-}
-
 cleanup_options() {
   printf "${YELLOW}%s${NONE}\n" "Cleanup home directory?">&1
   printf "${YELLOW}  y)${NONE}  %s\n" "Yes. This removes unused dotfiles." >&1
@@ -158,7 +148,5 @@ pac_install
 aur_install
 bootstrap_zsh
 bootstrap_neovim
-bootstrap_ssh
-update_yadm_repo
 cleanup_home
 goodbye
