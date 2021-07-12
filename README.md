@@ -208,24 +208,12 @@ or [**genie**](https://github.com/arkane-systems/genie)) - but I found my method
 <kbd>Ctrl + b</kbd> prefix is remapped to <kbd>Ctrl + a</kbd> because I think it's easier to input.
 
 ### Vim-Like Keybinds
-
-**Navigate Panes**
-
 Keybind | Action
 --------|-------
 <kbd>Ctrl + a</kbd> <kbd>h</kbd> | move one pane to the left
 <kbd>Ctrl + a</kbd> <kbd>j</kbd> | move one pane to the bottom
 <kbd>Ctrl + a</kbd> <kbd>k</kbd> | move one pane to the top
 <kbd>Ctrl + a</kbd> <kbd>l</kbd> | move one pane to the right
-
-**Resize Panes**
-
-Keybind | Action
---------|-------
-<kbd>Ctrl + a</kbd> <kbd><</kbd> | decrease pane width
-<kbd>Ctrl + a</kbd> <kbd>></kbd> | increase pane width
-<kbd>Ctrl + a</kbd> <kbd>-</kbd> | decrease pane height
-<kbd>Ctrl + a</kbd> <kbd>+</kbd> | increase pane height
   
 For more information, read the [**tmux wiki**](https://github.com/tmux/tmux/wiki)
 
