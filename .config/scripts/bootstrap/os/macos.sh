@@ -37,7 +37,8 @@ bootstrap_yadm() {
   print_msg "Installing yadm..."
   brew install yadm
   yadm clone --bootstrap "${DOTFILES_REPO}"
-  yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
+  yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" \
+    "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
 finalize() {
