@@ -38,7 +38,7 @@ bootstrap_yadm() {
   brew install yadm
   yadm clone --bootstrap "${DOTFILES_REPO}"
   yadm update-index --assume-unchanged "${XDG_CONFIG_HOME}/yadm/bootstrap" \
-    "${HOME}/README.md" "${HOME}/LICENSE"
+    "${HOME}/README.md" "${HOME}/LICENSE" "${XDG_CONFIG_HOME}/zsh/zsh-aliases"
 }
 
 finalize() {
