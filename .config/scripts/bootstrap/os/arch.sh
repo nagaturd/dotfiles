@@ -122,7 +122,7 @@ bootstrap_yadm() {
   sudo -u "${username}" yay -S --needed --noconfirm yadm
   sudo -Hu "${username}" yadm clone --bootstrap "${DOTFILES_REPO}"
   sudo -Hu "${username}" yadm update-index --assume-unchanged \
-    "${XDG_CONFIG_HOME}/yadm/bootstrap" "${HOME}/README.md" "${HOME}/LICENSE"
+    "${HOME}/.config/yadm/bootstrap" "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
 finalize() {
