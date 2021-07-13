@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+alias vim="nvim"
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+alias ls="ls -F --color=auto"
+alias mkdir="mkdir -p"
+
+alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
