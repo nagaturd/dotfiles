@@ -27,6 +27,6 @@ set -g @prefix_highlight_copy_mode_attr "fg=#232433,bg=#a9b1d6,bold"
 set -g status-left "#[fg=#a9b1d6,bg=#232433,bold]  #S#[fg=#a9b1d6,bg=#232433,nobold,noitalics,nounderscore] "
 set -g status-right "#{prefix_highlight}#[fg=#2a2b3d,bg=#232433,nobold,noitalics,nounderscore]#[fg=#a9b1d6,bg=#2a2b3d] %Y-%m-%d #[fg=#a9b1d6,bg=#2a2b3d,nobold,noitalics,nounderscore]|#[fg=#a9b1d6,bg=#2a2b3d] %H:%M #[fg=#32344a,bg=#2a2b3d,nobold,noitalics,nounderscore]#[fg=#a9b1d6,bg=#32344a,bold] #H "
 
-set -g window-status-format "#[fg=#2a2b3d,bg=#232433,nobold,noitalics,nounderscore] #[fg=#a9b1d6,bg=#2a2b3d] #I #[fg=#a9b1d6,bg=#2a2b3d,nobold,noitalics,nounderscore]| #[fg=white,bg=#2a2b3d]#W #F#[fg=#2a2b3d,bg=#232433,nobold,noitalics,nounderscore]"
-set -g window-status-current-format "#[fg=#32344a,bg=#232433,nobold,noitalics,nounderscore] #[fg=#a9b1d6,bg=#32344a] #I #[fg=#a9b1d6,bg=#32344a,nobold,noitalics,nounderscore]| #[fg=#a9b1d6,bg=#32344a]#W #F#[fg=#32344a,bg=#232433,nobold,noitalics,nounderscore]"
+set -g window-status-format "#[fg=#2a2b3d,bg=#232433,nobold,noitalics,nounderscore] #[fg=#565f89,bg=#2a2b3d] #I #[fg=#565f89,bg=#2a2b3d,nobold,noitalics,nounderscore]| #[fg=#565f89,bg=#2a2b3d]#W #F#[fg=#2a2b3d,bg=#232433,nobold,noitalics,nounderscore]"
+set -g window-status-current-format "#[fg=#3b3d57,bg=#232433,nobold,noitalics,nounderscore] #[fg=#a9b1d6,bg=#3b3d57] #I #[fg=#a9b1d6,bg=#3b3d57,nobold,noitalics,nounderscore]| #[fg=#a9b1d6,bg=#3b3d57]#W #F#[fg=#3b3d57,bg=#232433,nobold,noitalics,nounderscore]"
 set -g window-status-separator ""

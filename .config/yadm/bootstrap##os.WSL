@@ -100,6 +100,12 @@ bootstrap_neovim() {
   sudo mv /tmp/win32yank.exe /usr/local/bin/
 }
 
+bootstrap_docker() {
+  print_msg "Bootstrapping Docker..."
+  # Allow 'sudo dockerd' to be run without password
+  sudo -u root echo "%docker ALL=(ALL) NOPASSWD: /usr/bin/dockerd" >/etc/sudoers.d/docker
+}
+
 cleanup_options() {
   printf "${YELLOW}%s${NONE}\n" "Cleanup home directory?">&1
   printf "${YELLOW}  y)${NONE}  %s\n" "Yes. This removes unused dotfiles." >&1
