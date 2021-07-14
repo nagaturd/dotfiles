@@ -10,7 +10,7 @@ RED="$(tput setaf 1)"
 NONE="$(tput sgr0)"
 
 AUR_HELPER="yay"
-DOTFILES_REPO="https://github.com/brikehn/dotfiles"
+DOTFILES_REPO="https://github.com/brikehn/dotfiles.git"
 
 # List of packages to install with pacman
 pkg_list=(
@@ -120,7 +120,7 @@ disable_sudo_nopasswd() {
 bootstrap_yadm() {
   print_msg "Installing yadm..."
   sudo -u "${username}" yay -S --needed --noconfirm yadm
-  sudo -Hu "${username}" yadm clone --bootstrap "${DOTFILES_REPO}"
+  sudo -u "${username}" yadm clone --bootstrap "${DOTFILES_REPO}"
 }
 
 finalize() {

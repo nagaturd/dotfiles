@@ -146,9 +146,9 @@ cleanup_home() {
 
 update_yadm_repo() {
   print_msg "Updating yadm index..."
-  sudo yadm update-index --assume-unchanged \
-    "${XDG_CONFIG_HOME}/yadm/bootstrap" "${HOME}/README.md" \
-    "${HOME}/LICENSE" "${XDG_CONFIG_HOME}/zsh/zsh-aliases"
+  sudo -Hu yadm update-index --assume-unchanged \
+    "${HOME}/.config/yadm/bootstrap" "${HOME}/README.md" \
+    "${HOME}/LICENSE" "${HOME}/.config/zsh/zsh-aliases"
 }
 
 goodbye() {
