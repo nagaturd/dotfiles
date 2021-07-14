@@ -119,7 +119,7 @@ disable_sudo_nopasswd() {
 
 bootstrap_yadm() {
   print_msg "Installing yadm..."
-  sudo -u "${username}" yay -S --needed --noconfirm yadm
+  sudo -u "${username}" 'yay -S --needed --noconfirm yadm' "${username}"
   sudo -u "${username}" yadm clone --bootstrap "${DOTFILES_REPO}"
 }
 
