@@ -144,6 +144,13 @@ cleanup_home() {
   fi
 }
 
+update_yadm_repo() {
+  print_msg "Updating yadm index..."
+  sudo -Hu "${username}" yadm update-index --assume-unchanged \
+    "${HOME}/.config/yadm/bootstrap" "${HOME}/README.md" "${HOME}/LICENSE" \
+    "${HOME}/.config/zsh/zsh-aliases"
+}
+
 goodbye() {
   print_msg "Successfully installed dotfiles!"
 }
