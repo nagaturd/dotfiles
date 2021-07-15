@@ -121,10 +121,8 @@ bootstrap_yadm() {
   print_msg "Installing yadm..."
   sudo -u "${username}" yay -S --needed --noconfirm yadm
   sudo -H -u "${username}" yadm clone --bootstrap "${DOTFILES_REPO}"
-  echo "${username}"
   sudo -H -u "${username}" yadm update-index --assume-unchanged \
-    "/home/${username}/.config/yadm/bootstrap" "/home/${username}/README.md" \
-    "/home/${username}/LICENSE" "/home/${username}/.config/zsh/zsh-aliases"
+    "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
 finalize() {
