@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 alias vim="nvim"
+alias code="nvim" # hehe
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'

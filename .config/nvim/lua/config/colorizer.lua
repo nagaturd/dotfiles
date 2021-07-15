@@ -1,4 +1,4 @@
-require'colorizer'.setup({ '*' }, {
+require'colorizer'.setup({ 'lua', 'javascript', 'html', 'css' }, {
   RGB = true, -- #RGB hex codes
   RRGGBB = true, -- #RRGGBB hex codes
   RRGGBBAA = true, -- ##RRGGBBAA hex codes

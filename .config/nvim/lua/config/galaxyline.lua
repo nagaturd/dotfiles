@@ -3,7 +3,7 @@ local fn = vim.fn
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 local section = require('galaxyline').section
-gl.short_line_list = { 'NvimTree', 'Outline', 'help' }
+gl.short_line_list = { 'NvimTree', 'Outline', 'help', 'toggleterm' }
 
 local colors = {
   bg = '#232433',

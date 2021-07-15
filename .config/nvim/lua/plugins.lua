@@ -46,7 +46,7 @@ require('packer').startup({
     -- use 'mfussenegger/nvim-dap' -- dap client
     -- use 'rcarriga/nvim-dap-ui' -- UI for nvim-dap
     -- Terminal
-    -- use 'akinsho/nvim-toggleterm.lua' -- integrated terminal
+    use 'akinsho/nvim-toggleterm.lua' -- integrated terminal
     -- Git
     use 'lewis6991/gitsigns.nvim' -- git in sign column
     -- File explorer
