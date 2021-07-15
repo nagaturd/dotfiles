@@ -120,8 +120,8 @@ disable_sudo_nopasswd() {
 bootstrap_yadm() {
   print_msg "Installing yadm..."
   sudo -u "${username}" yay -S --needed --noconfirm yadm
-  sudo -H -u "${username}" yadm clone --bootstrap "${DOTFILES_REPO}"
-  sudo -H -u "${username}" yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
+  sudo -u "${username}" -H yadm clone --bootstrap "${DOTFILES_REPO}"
+  sudo -u "${username}" -H yadm update-index --assume-unchanged "${HOME}/README.md" "${HOME}/LICENSE"
 }
 
 finalize() {
