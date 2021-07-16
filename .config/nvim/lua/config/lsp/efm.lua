@@ -33,7 +33,7 @@ return {
       },
       javascript = {
         {
-          formatCommand = './node_modules/.bin/prettier --fix-to-stdout --stdin --stdin-filepath ${INPUT}',
+          formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
           formatStdin = true
         }, {
           lintCommand = './node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}',
