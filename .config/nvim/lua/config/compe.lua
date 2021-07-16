@@ -12,10 +12,10 @@ require'compe'.setup {
   max_kind_width = 100,
   max_menu_width = 100,
   documentation = {
-    border = 'none',
-    winhighlight = 'CompeDocumentation',
+    border = { '', '', '', ' ', '', '', '', ' ' },
+    winhighlight = 'NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder',
     max_width = 120,
-    min_width = 40,
+    min_width = 60,
     max_height = math.floor(vim.o.lines * 0.3),
     min_height = 1
   },
@@ -24,7 +24,6 @@ require'compe'.setup {
     path = true,
     buffer = true,
     calc = true,
-    tags = true,
     spell = false,
     omni = true,
     nvim_lsp = true,
