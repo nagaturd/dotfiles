@@ -8,6 +8,8 @@ return {
     'javascript', 'javascriptreact', 'javascript.jsx', 'typescript',
     'typescriptreact', 'typescript.tsx'
   },
-  settings = { documentFormatting = true }
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+  end
 }
 

@@ -6,7 +6,7 @@ return {
     'javascriptreact'
   },
   settings = {
-    rootMarkers = { '.git/' },
+    rootMarkers = { 'package.json', '.git/' },
     languages = {
       lua = {
         {
@@ -21,16 +21,49 @@ return {
         }
       },
       typescript = {
-        { formatCommand = './node_modules/.bin/prettier' }, {
-          lintCommand = 'eslint --stdin --stdin-filename ${INPUT}',
+        {
+          formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
+          formatStdin = true
+        }, {
+          lintCommand = './node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}',
           lintStdin = true,
           lintFormats = { '%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m' },
           lintIgnoreExitCode = true
         }
       },
-      javascript = {},
-      typescriptreact = {},
-      javascriptreact = {}
+      javascript = {
+        {
+          formatCommand = './node_modules/.bin/prettier --fix-to-stdout --stdin --stdin-filepath ${INPUT}',
+          formatStdin = true
+        }, {
+          lintCommand = './node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}',
+          lintStdin = true,
+          lintFormats = { '%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m' },
+          lintIgnoreExitCode = true
+        }
+      },
+      typescriptreact = {
+        {
+          formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
+          formatStdin = true
+        }, {
+          lintCommand = './node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}',
+          lintStdin = true,
+          lintFormats = { '%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m' },
+          lintIgnoreExitCode = true
+        }
+      },
+      javascriptreact = {
+        {
+          formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
+          formatStdin = true
+        }, {
+          lintCommand = './node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}',
+          lintStdin = true,
+          lintFormats = { '%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m' },
+          lintIgnoreExitCode = true
+        }
+      }
     }
   }
 }

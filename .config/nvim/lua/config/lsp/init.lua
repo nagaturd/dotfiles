@@ -71,7 +71,7 @@ local function setup_servers()
 
     -- add custom config if one exists
     if pcall(require, 'config.lsp.' .. server) then
-      config = vim.tbl_extend('keep', config, require('config.lsp.' .. server))
+      config = vim.tbl_extend('force', config, require('config.lsp.' .. server))
     end
 
     require'lspconfig'[server].setup(config)
@@ -107,23 +107,23 @@ vim.lsp.protocol.CompletionItemKind = {
 
 -- format on save
 vim.api.nvim_exec([[ 
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.gql lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.yaml lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.dockerfile lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.gql lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.yaml lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.dockerfile lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]], true)
 
 require('lsp-rooter').setup {}
