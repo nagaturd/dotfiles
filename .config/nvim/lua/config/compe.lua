@@ -18,10 +18,11 @@ require'compe'.setup {
     buffer = true,
     calc = true,
     spell = false,
+    tags = false,
     omni = true,
     nvim_lsp = true,
     nvim_lua = true,
-    nvim_treesitter = true
+    treesitter = true
   }
 }
 
