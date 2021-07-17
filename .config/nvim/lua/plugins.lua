@@ -36,8 +36,8 @@ require('packer').startup({
     use 'nvim-telescope/telescope.nvim' -- telescope
     use 'nvim-telescope/telescope-fzy-native.nvim' -- telescope fzy
     -- Snippets
-    -- use 'L3MON4D3/LuaSnip' -- snippet plugin
-    -- use 'rafamadriz/friendly_snippets' -- community snippets collection
+    use 'L3MON4D3/LuaSnip' -- snippet plugin
+    use 'rafamadriz/friendly-snippets' -- community snippets collection
     -- Comments
     use 'b3nj5m1n/kommentary' -- commenting
     -- Completion

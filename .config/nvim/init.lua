@@ -2,20 +2,21 @@ vim.g.mapleader = ' '
 
 require('options') -- neovim options
 require('mappings') -- keymappings
-require('plugins')
+require('plugins') -- plugins
 
 require('config.lspsaga')
-require('config.nvimtree')
+require('config.nvim-tree')
 require('config.telescope')
 require('config.tokyonight')
-require('config.compe')
-require('config.treesitter')
+require('config.nvim-compe')
+require('config.nvim-treesitter')
 require('config.kommentary')
-require('config.symbols')
+require('config.symbols-outline')
 require('config.galaxyline')
-require('config.colorizer')
-require('config.autopairs')
-require('config.autotags')
+require('config.nvim-colorizer')
+require('config.nvim-autopairs')
+require('config.nvim-ts-autotags')
 require('config.gitsigns')
-require('config.toggleterm')
+require('config.nvim-toggleterm')
 require('config.lsp')
+require('config.luasnip')
