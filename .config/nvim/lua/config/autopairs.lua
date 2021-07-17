@@ -16,6 +16,15 @@ npairs.setup({
     lua = { 'string' }, -- it will not add pair on that treesitter node
     javascript = { 'template_string' },
     java = false -- don't check treesitter on java
+  },
+  fast_wrap = {
+    map = '<M-e>',
+    chars = { '{', '[', '(', '"', '\'' },
+    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
+    end_key = '%',
+    keys = 'qwertyuiopzxcvbnmasdfghjkl',
+    check_comma = true,
+    highlight = 'Search'
   }
 })
 
