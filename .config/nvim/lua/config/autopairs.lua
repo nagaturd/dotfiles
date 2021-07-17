@@ -20,6 +20,18 @@ npairs.setup({
   fast_wrap = {}
 })
 
+local Rule = require('nvim-autopairs.rule')
+npairs.add_rules {
+  Rule(' ', ' '):with_pair(function(opts)
+    local pair = opts.line:sub(opts.col, opts.col + 1)
+    return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+  end), Rule('( ', ' )'):with_pair(function() return false end):with_move(
+      function(opts) return opts.prev_char:match('.%)') ~= nil end):use_key(')'),
+  Rule('{ ', ' }'):with_pair(function() return false end):with_move(
+      function(opts) return opts.prev_char:match('.%}') ~= nil end):use_key('}'),
+  Rule('[ ', ' ]'):with_pair(function() return false end):with_move(
+      function(opts) return opts.prev_char:match('.%]') ~= nil end):use_key(']')
+}
+
 -- local cond = require('nvim-autopairs.conds')
 -- local ts_conds = require('nvim-autopairs.ts-conds')
--- local Rule = require('nvim-autopairs.rule')
