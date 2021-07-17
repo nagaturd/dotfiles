@@ -17,15 +17,7 @@ npairs.setup({
     javascript = { 'template_string' },
     java = false -- don't check treesitter on java
   },
-  fast_wrap = {
-    map = '<M-e>',
-    chars = { '{', '[', '(', '"', '\'' },
-    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
-    end_key = '%',
-    keys = 'qwertyuiopzxcvbnmasdfghjkl',
-    check_comma = true,
-    highlight = 'Search'
-  }
+  fast_wrap = {}
 })
 
 -- local cond = require('nvim-autopairs.conds')
