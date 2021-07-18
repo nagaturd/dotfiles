@@ -240,7 +240,8 @@ section.short_line_left[3] = {
       if vim.bo.filetype == 'toggleterm' then
         return 'Terminal [' .. vim.b.toggle_number .. ']'
       else
-        return require('galaxyline.provider_fileinfo').get_current_file_name()
+        return
+            require('galaxyline.provider_fileinfo').filename_in_special_buffer()
       end
     end,
     condition = condition.buffer_not_empty,
