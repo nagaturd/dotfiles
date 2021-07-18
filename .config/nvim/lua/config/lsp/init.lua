@@ -128,5 +128,3 @@ autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePre *.dockerfile lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]], true)
-
-require('lsp-rooter').setup {}
