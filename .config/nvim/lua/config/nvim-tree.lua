@@ -1,7 +1,7 @@
 local g = vim.g
 g.nvim_tree_side = 'left'
 g.nvim_tree_width = 30
-g.nvim_tree_ignore = {}
+g.nvim_tree_ignore = { 'node_modules', '.git' }
 g.nvim_tree_gitignore = 0
 g.nvim_tree_auto_open = 0
 g.nvim_tree_auto_close = 1
