@@ -3,7 +3,7 @@ return {
   init_options = { documentFormatting = true },
   filetypes = {
     'sh', 'lua', 'typescript', 'javascript', 'typescriptreact',
-    'javascriptreact'
+    'javascriptreact', 'graphql'
   },
   settings = {
     rootMarkers = { 'package.json', '.git/' },
@@ -62,6 +62,12 @@ return {
           lintStdin = true,
           lintFormats = { '%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m' },
           lintIgnoreExitCode = true
+        }
+      },
+      graphql = {
+        {
+          formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
+          formatStdin = true
         }
       }
     }
