@@ -5,6 +5,7 @@ require('mappings') -- keymappings
 require('plugins') -- plugins
 
 require('config.lspsaga')
+require('config.nvim-web-devicons')
 require('config.nvim-tree')
 require('config.telescope')
 require('config.tokyonight')

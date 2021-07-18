@@ -15,7 +15,7 @@ require('toggleterm').setup {
   start_in_insert = true,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   persist_size = true,
-  direction = 'window', -- horizontal, vertical, float, window
+  direction = 'horizontal', -- horizontal, vertical, float, window
   close_on_exit = false, -- close the terminal window when the process exits
   shell = vim.o.shell -- change the default shell
   -- This field is only relevant if direction is set to 'float'

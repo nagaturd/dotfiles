@@ -222,7 +222,13 @@ section.short_line_left[1] = {
 
 section.short_line_left[2] = {
   BufferFileIcon = {
-    provider = 'FileIcon',
+    provider = function()
+      if vim.bo.filetype == 'toggleterm' then
+        return ' '
+      else
+        return require('galaxyline.provider_fileinfo').get_file_icon()
+      end
+    end,
     condition = condition.buffer_not_empty,
     highlight = { colors.text, colors.bg2 }
   }
@@ -230,7 +236,13 @@ section.short_line_left[2] = {
 
 section.short_line_left[3] = {
   SFileName = {
-    provider = 'SFileName',
+    provider = function()
+      if vim.bo.filetype == 'toggleterm' then
+        return 'Terminal [' .. vim.b.toggle_number .. ']'
+      else
+        return require('galaxyline.provider_fileinfo').get_current_file_name()
+      end
+    end,
     condition = condition.buffer_not_empty,
     highlight = { colors.text, colors.bg2 },
     separator = '',
@@ -238,18 +250,3 @@ section.short_line_left[3] = {
   }
 }
 
-section.short_line_right[1] = {
-  BufferIcon = {
-    provider = 'BufferIcon',
-    condition = function()
-      if require('galaxyline.provider_buffer').get_buffer_type_icon() then
-        return true
-      else
-        return false
-      end
-    end,
-    highlight = { colors.text, colors.bg1 },
-    separator = '',
-    separator_highlight = { colors.bg1, colors.bg }
-  }
-}
