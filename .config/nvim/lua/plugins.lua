@@ -40,6 +40,7 @@ require('packer').startup({
     use 'rafamadriz/friendly-snippets' -- community snippets collection
     -- Comments
     use 'b3nj5m1n/kommentary' -- commenting
+    use 'joosepalviste/nvim-ts-context-commentstring' -- contextual commenting
     -- Completion
     use 'hrsh7th/nvim-compe' -- autocompletion
     -- Debugging

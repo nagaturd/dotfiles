@@ -1,4 +1,7 @@
--- Rust comments
-require('kommentary.config').configure_language('rust', {
-  prefer_single_line_comments = true
+require('kommentary.config').configure_language('typescriptreact', {
+  single_line_comment_string = 'auto',
+  multi_line_comment_string = 'auto',
+  hook_function = function()
+    require('ts_context_commentstring.internal').update_commentstring()
+  end
 })
